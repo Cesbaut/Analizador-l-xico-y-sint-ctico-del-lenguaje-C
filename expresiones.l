@@ -64,7 +64,6 @@
 ","                 { return COMA; }
 "."                 { return PUNTO; }
 ":"                 { return DOSPUNTOS; }
-"?"                 { return PUNTOCOMA; }
 
 
 "{"                 { return LLAVEABRIR; }
