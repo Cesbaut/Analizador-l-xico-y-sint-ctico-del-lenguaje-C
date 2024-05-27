@@ -15,6 +15,7 @@
 "switch"            { return SWITCH; }
 "enum"              { return ENUM; }
 "union"             { return UNION; }
+"kks"
 
 
 "+"                 { return MAS; }
