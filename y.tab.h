@@ -193,6 +193,7 @@ typedef
 #define	PARENSISCERRAR	262
 #define	CORCHETEABRIR	263
 #define	CORCHETECERRAR	264
+#define	PUNTOCOMA	265
 
 
 #line 169 "/usr/share/bison++/bison.h"
@@ -248,6 +249,7 @@ static const int PARENTESISABRIR;
 static const int PARENSISCERRAR;
 static const int CORCHETEABRIR;
 static const int CORCHETECERRAR;
+static const int PUNTOCOMA;
 
 
 #line 212 "/usr/share/bison++/bison.h"
@@ -263,6 +265,7 @@ static const int CORCHETECERRAR;
 	,PARENSISCERRAR=262
 	,CORCHETEABRIR=263
 	,CORCHETECERRAR=264
+	,PUNTOCOMA=265
 
 
 #line 215 "/usr/share/bison++/bison.h"

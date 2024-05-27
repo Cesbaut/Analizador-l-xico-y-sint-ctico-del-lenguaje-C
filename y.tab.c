@@ -313,6 +313,7 @@ typedef
 #define	PARENSISCERRAR	262
 #define	CORCHETEABRIR	263
 #define	CORCHETECERRAR	264
+#define	PUNTOCOMA	265
 
 
 #line 263 "/usr/share/bison++/bison.cc"
@@ -369,6 +370,7 @@ static const int PARENTESISABRIR;
 static const int PARENSISCERRAR;
 static const int CORCHETEABRIR;
 static const int CORCHETECERRAR;
+static const int PUNTOCOMA;
 
 
 #line 307 "/usr/share/bison++/bison.cc"
@@ -384,6 +386,7 @@ enum YY_parse_ENUM_TOKEN { YY_parse_NULL_TOKEN=0
 	,PARENSISCERRAR=262
 	,CORCHETEABRIR=263
 	,CORCHETECERRAR=264
+	,PUNTOCOMA=265
 
 
 #line 310 "/usr/share/bison++/bison.cc"
@@ -427,6 +430,7 @@ const int YY_parse_CLASS::PARENTESISABRIR=261;
 const int YY_parse_CLASS::PARENSISCERRAR=262;
 const int YY_parse_CLASS::CORCHETEABRIR=263;
 const int YY_parse_CLASS::CORCHETECERRAR=264;
+const int YY_parse_CLASS::PUNTOCOMA=265;
 
 
 #line 341 "/usr/share/bison++/bison.cc"
@@ -445,11 +449,11 @@ YY_parse_CONSTRUCTOR_CODE;
  #line 352 "/usr/share/bison++/bison.cc"
 
 
-#define	YYFINAL		16
+#define	YYFINAL		18
 #define	YYFLAG		-32768
-#define	YYNTBASE	10
+#define	YYNTBASE	11
 
-#define YYTRANSLATE(x) ((unsigned)(x) <= 264 ? yytranslate[x] : 15)
+#define YYTRANSLATE(x) ((unsigned)(x) <= 265 ? yytranslate[x] : 16)
 
 static const char yytranslate[] = {     0,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -478,17 +482,18 @@ static const char yytranslate[] = {     0,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     1,     2,     3,     4,     5,
-     6,     7,     8,     9
+     6,     7,     8,     9,    10
 };
 
 #if YY_parse_DEBUG != 0
 static const short yyprhs[] = {     0,
-     0,     1,     4,     6,    14,    18
+     0,     1,     4,     6,    15,    19
 };
 
 static const short yyrhs[] = {    -1,
-    10,    11,     0,    12,     0,     4,     6,    13,     7,     8,
-    14,     9,     0,     3,     5,     3,     0,     3,     0
+    11,    12,     0,    13,     0,     4,     6,    14,     7,     8,
+    15,     9,    10,     0,     3,     5,     3,     0,     3,    10,
+     0
 };
 
 #endif
@@ -500,21 +505,22 @@ static const short yyrline[] = { 0,
 
 static const char * const yytname[] = {   "$","error","$illegal.","NUMEROS",
 "IF","IGUAL","PARENTESISABRIR","PARENSISCERRAR","CORCHETEABRIR","CORCHETECERRAR",
-"programa","sentencia","if_statement","condicional","contenido",""
+"PUNTOCOMA","programa","sentencia","if_statement","condicional","contenido",
+""
 };
 #endif
 
 static const short yyr1[] = {     0,
-    10,    10,    11,    12,    13,    14
+    11,    11,    12,    13,    14,    15
 };
 
 static const short yyr2[] = {     0,
-     0,     2,     1,     7,     3,     1
+     0,     2,     1,     8,     3,     2
 };
 
 static const short yydefact[] = {     1,
      0,     0,     2,     3,     0,     0,     0,     0,     0,     5,
-     0,     6,     0,     4,     0,     0
+     0,     0,     0,     6,     0,     4,     0,     0
 };
 
 static const short yydefgoto[] = {     1,
@@ -523,7 +529,7 @@ static const short yydefgoto[] = {     1,
 
 static const short yypact[] = {-32768,
      0,    -5,-32768,-32768,    -1,    -2,     1,     2,     3,-32768,
-     4,-32768,    -3,-32768,     9,-32768
+     4,    -4,     5,-32768,     6,-32768,     9,-32768
 };
 
 static const short yypgoto[] = {-32768,
@@ -531,17 +537,17 @@ static const short yypgoto[] = {-32768,
 };
 
 
-#define	YYLAST		11
+#define	YYLAST		16
 
 
-static const short yytable[] = {    15,
-     5,     6,     8,     2,    10,    14,    12,     9,    16,     0,
-    11
+static const short yytable[] = {    17,
+     5,     6,     8,     2,    10,    14,    12,     9,    18,     0,
+    11,     0,     0,    15,     0,    16
 };
 
 static const short yycheck[] = {     0,
-     6,     3,     5,     4,     3,     9,     3,     7,     0,    -1,
-     8
+     6,     3,     5,     4,     3,    10,     3,     7,     0,    -1,
+     8,    -1,    -1,     9,    -1,    10
 };
 
 #line 352 "/usr/share/bison++/bison.cc"
