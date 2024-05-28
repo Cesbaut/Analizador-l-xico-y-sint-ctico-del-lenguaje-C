@@ -50,12 +50,21 @@ for_statement:
     }
     ;
 
+while_statement:
+    WHILE PARENTESISABRIR condicional PARENSISCERRAR LLAVEABRIR contenido LLAVECERRAR
+    {
+        printf("Sentencia while encontrada y correcta");
+    }
+    ;
+
 inicializacion:
     tipoDeDato VARIABLES 
+    ;
 
 condicional:
     NUMEROS IGUALIGUAL NUMEROS
     ;
+    
 contenido:
     NUMEROS PUNTOCOMA
     ;
