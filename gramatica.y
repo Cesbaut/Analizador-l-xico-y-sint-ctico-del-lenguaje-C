@@ -57,6 +57,12 @@ while_statement:
     }
     ;
 
+do_while_statement
+    DO LLAVEABRIR contenido LLAVECERRAR WHILE PARENTESISABRIR condicional PARENSISCERRAR PUNTOCOMA
+    {
+        printf("Sentencia do while encontrada y correcta");
+    }
+
 inicializacion:
     tipoDeDato VARIABLES 
     ;
@@ -64,7 +70,7 @@ inicializacion:
 condicional:
     NUMEROS IGUALIGUAL NUMEROS
     ;
-    
+
 contenido:
     NUMEROS PUNTOCOMA
     ;
