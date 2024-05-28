@@ -8,7 +8,7 @@ int yylex(void);
 
 
 
-%token FOR IF ELSE WHILE DO SWITCH ENUM UNION
+%token FOR IF ELSE WHILE DO SWITCH ENUM UNION CASE BREAK DEFAULT
 %token MAS MENOS MULTIPLICACION DIVISION MODULO
 %token IGUAL MASIGUAL MENOSIGUAL MULTIPLICACIONIGUAL DIVISIONIGUAL MODULOIGUAL
 %token DECREMENTO INCREMENTO
@@ -37,6 +37,8 @@ sentencia:
     if_statement
     |for_statement
     |while_statement
+    |do_while_statement
+    |switch_statement
     ;
 
 if_statement:
@@ -58,6 +60,33 @@ while_statement:
     }
     ;
 
+
+do_while_statement:
+    DO LLAVEABRIR contenido LLAVECERRAR WHILE PARENTESISABRIR condicional PARENTESISCERRAR PUNTOCOMA
+    {
+        printf("Sentencia do while encontrada y correcta");
+    }
+    ;
+switch_statement:
+    SWITCH PARENTESISABRIR VARIABLES PARENTESISCERRAR LLAVEABRIR case_clauses default_clause_opt LLAVECERRAR
+    {
+        printf("Sentencia switch encontrada y correcta");
+    }
+    ;
+
+case_clauses:
+    case_clause
+    | case_clauses case_clause
+    ;
+
+case_clause:
+    CASE NUMEROS DOSPUNTOS contenido BREAK PUNTOCOMA
+    ;
+
+default_clause_opt:
+    /* vacío */
+    | DEFAULT DOSPUNTOS contenido BREAK PUNTOCOMA
+    ;
 
 inicializacion:
     tipoDeDato VARIABLES IGUAL NUMEROS
@@ -106,11 +135,6 @@ condicional:
 contenido:
     NUMEROS PUNTOCOMA
     ;
-
-
-
-
-
 
 %%
 
