@@ -15,6 +15,7 @@
 "switch"            { return SWITCH; }
 "enum"              { return ENUM; }
 "union"             { return UNION; }
+"kks"
 
 
 "+"                 { return MAS; }
@@ -64,7 +65,6 @@
 ","                 { return COMA; }
 "."                 { return PUNTO; }
 ":"                 { return DOSPUNTOS; }
-"?"                 { return PUNTOCOMA; }
 
 
 "{"                 { return LLAVEABRIR; }
