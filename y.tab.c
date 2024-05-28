@@ -633,11 +633,11 @@ YY_parse_CONSTRUCTOR_CODE;
  #line 352 "/usr/share/bison++/bison.cc"
 
 
-#define	YYFINAL		18
+#define	YYFINAL		56
 #define	YYFLAG		-32768
 #define	YYNTBASE	57
 
-#define YYTRANSLATE(x) ((unsigned)(x) <= 311 ? yytranslate[x] : 62)
+#define YYTRANSLATE(x) ((unsigned)(x) <= 311 ? yytranslate[x] : 68)
 
 static const char yytranslate[] = {     0,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -676,20 +676,33 @@ static const char yytranslate[] = {     0,
 
 #if YY_parse_DEBUG != 0
 static const short yyprhs[] = {     0,
-     0,     1,     4,     6,    15,    19
+     0,     1,     4,     6,     8,    17,    30,    35,    37,    39,
+    41,    43,    45,    47,    49,    51,    53,    57,    59,    61,
+    63,    65,    67,    69,    71,    73,    75,    77,    79,    81,
+    84,    87,    91
 };
 
 static const short yyrhs[] = {    -1,
-    57,    58,     0,    59,     0,     4,    50,    60,    51,    46,
-    61,    47,    42,     0,    54,    24,    54,     0,    54,    42,
-     0
+    57,    58,     0,    59,     0,    60,     0,     4,    50,    66,
+    51,    46,    67,    47,    42,     0,     3,    50,    61,    42,
+    63,    42,    65,    51,    46,    67,    47,    42,     0,    62,
+    55,    16,    54,     0,    33,     0,    34,     0,    35,     0,
+    36,     0,    37,     0,    38,     0,    39,     0,    40,     0,
+    41,     0,    55,    64,    54,     0,    24,     0,    25,     0,
+    26,     0,    27,     0,    28,     0,    29,     0,    16,     0,
+    17,     0,    18,     0,    19,     0,    20,     0,    21,     0,
+    55,    23,     0,    55,    22,     0,    54,    24,    54,     0,
+    54,    42,     0
 };
 
 #endif
 
 #if (YY_parse_DEBUG != 0) || defined(YY_parse_ERROR_VERBOSE) 
 static const short yyrline[] = { 0,
-    31,    33,    36,    40,    46,    49
+    31,    33,    36,    38,    41,    47,    55,    58,    60,    61,
+    62,    63,    64,    65,    66,    67,    69,    73,    75,    76,
+    77,    78,    79,    82,    84,    85,    86,    87,    88,    90,
+    92,    95,    98
 };
 
 static const char * const yytname[] = {   "$","error","$illegal.","FOR","IF",
@@ -700,48 +713,69 @@ static const char * const yytname[] = {   "$","error","$illegal.","FOR","IF",
 "SHORT","LONG","SIGNED","UNSIGNED","PUNTOCOMA","COMA","PUNTO","DOSPUNTOS","LLAVEABRIR",
 "LLAVECERRAR","CORCHETEABRIR","CORCHETECERRAR","PARENTESISABRIR","PARENTESISCERRAR",
 "COMILLAS","COMILLASIMPLE","NUMEROS","VARIABLES","CADENA","programa","sentencia",
-"if_statement","condicional","contenido",""
+"if_statement","for_statement","inicializacion","tipoDeDato","condicion","operadorRelacional",
+"incremento","condicional","contenido","contenido"
 };
 #endif
 
 static const short yyr1[] = {     0,
-    57,    57,    58,    59,    60,    61
+    57,    57,    58,    58,    59,    60,    61,    62,    62,    62,
+    62,    62,    62,    62,    62,    62,    63,    64,    64,    64,
+    64,    64,    64,    -1,    -1,    -1,    -1,    -1,    -1,    65,
+    65,    66,    67
 };
 
 static const short yyr2[] = {     0,
-     0,     2,     1,     8,     3,     2
+     0,     2,     1,     1,     8,    12,     4,     1,     1,     1,
+     1,     1,     1,     1,     1,     1,     3,     1,     1,     1,
+     1,     1,     1,     1,     1,     1,     1,     1,     1,     2,
+     2,     3,     2
 };
 
 static const short yydefact[] = {     1,
-     0,     0,     2,     3,     0,     0,     0,     0,     0,     5,
-     0,     0,     0,     6,     0,     4,     0,     0
+     0,     0,     0,     2,     3,     4,     0,     0,     8,     9,
+    10,    11,    12,    13,    14,    15,    16,     0,     0,     0,
+     0,     0,     0,     0,     0,     0,     0,     0,    32,     0,
+    18,    19,    20,    21,    22,    23,     0,     0,     7,     0,
+     0,    17,     0,     0,    33,     0,    31,    30,     0,     5,
+     0,     0,     0,     6,     0,     0
 };
 
 static const short yydefgoto[] = {     1,
-     3,     4,     7,    13
+     4,     5,     6,    18,    19,    27,    37,    44,    21,    41
 };
 
 static const short yypact[] = {-32768,
-     0,   -49,-32768,-32768,   -52,   -21,   -46,   -48,   -39,-32768,
-   -45,   -34,   -37,-32768,   -31,-32768,    12,-32768
+    15,   -30,   -29,-32768,-32768,-32768,   -33,   -32,-32768,-32768,
+-32768,-32768,-32768,-32768,-32768,-32768,-32768,   -19,   -31,     1,
+   -25,   -28,    12,   -24,   -17,   -15,   -11,   -22,-32768,   -21,
+-32768,-32768,-32768,-32768,-32768,-32768,   -20,   -18,-32768,    -7,
+    -9,-32768,    -6,   -12,-32768,    -2,-32768,-32768,   -10,-32768,
+   -21,    -5,    -1,-32768,    43,-32768
 };
 
 static const short yypgoto[] = {-32768,
--32768,-32768,-32768,-32768
+-32768,-32768,-32768,-32768,-32768,-32768,-32768,-32768,-32768,    -4
 };
 
 
-#define	YYLAST		12
+#define	YYLAST		47
 
 
-static const short yytable[] = {    17,
-     5,     6,     8,     2,     9,    10,    11,    14,    12,    15,
-    16,    18
+static const short yytable[] = {     9,
+    10,    11,    12,    13,    14,    15,    16,    17,    31,    32,
+    33,    34,    35,    36,    55,    47,    48,     2,     3,     7,
+     8,    20,    22,    23,    24,    25,    26,    28,    30,    29,
+    38,    39,    40,    42,    45,    51,    43,    46,    49,    50,
+    54,    53,    56,     0,     0,     0,    52
 };
 
-static const short yycheck[] = {     0,
-    50,    54,    24,     4,    51,    54,    46,    42,    54,    47,
-    42,     0
+static const short yycheck[] = {    33,
+    34,    35,    36,    37,    38,    39,    40,    41,    24,    25,
+    26,    27,    28,    29,     0,    22,    23,     3,     4,    50,
+    50,    54,    42,    55,    24,    51,    55,    16,    46,    54,
+    42,    54,    54,    54,    42,    46,    55,    47,    51,    42,
+    42,    47,     0,    -1,    -1,    -1,    51
 };
 
 #line 352 "/usr/share/bison++/bison.cc"
@@ -1237,10 +1271,16 @@ YYLABEL(yyreduce)
 
   switch (yyn) {
 
-case 4:
-#line 42 "gramatica.y"
+case 5:
+#line 43 "gramatica.y"
 {
         printf("Sentencia if encontrada y correcta");
+    ;
+    break;}
+case 6:
+#line 49 "gramatica.y"
+{
+        printf("Sentencia for encontrada y correcta");
     ;
     break;}
 }
@@ -1447,7 +1487,7 @@ YYLABEL(yyerrhandle)
 /* END */
 
  #line 1038 "/usr/share/bison++/bison.cc"
-#line 54 "gramatica.y"
+#line 107 "gramatica.y"
 
 
 

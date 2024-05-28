@@ -35,6 +35,7 @@ programa:
 
 sentencia:
     if_statement
+    |for_statement
     ;
 
 if_statement:
@@ -44,14 +45,52 @@ if_statement:
     }
     ;
 for_statement:
-    FOR PARENTESISABRIR inicializacion PUNTOCOMA condicion PUNTOCOMA incremento PARENSISCERRAR LLAVEABRIR contenido LLAVECERRAR PUNTOCOMA
+    FOR PARENTESISABRIR inicializacion PUNTOCOMA condicion PUNTOCOMA incremento PARENTESISCERRAR LLAVEABRIR contenido LLAVECERRAR PUNTOCOMA
     {
         printf("Sentencia for encontrada y correcta");
     }
     ;
 
+
 inicializacion:
-    tipoDeDato VARIABLES 
+    tipoDeDato VARIABLES IGUAL NUMEROS
+    ;
+tipoDeDato:
+    INT
+    |FLOAT
+    |CHAR
+    |DOUBLE
+    |VOID
+    |SHORT
+    |LONG
+    |SIGNED
+    |UNSIGNED
+    ;
+condicion:
+    VARIABLES operadorRelacional NUMEROS
+    ;
+
+operadorRelacional:
+    IGUALIGUAL
+    |DIFERENTE
+    |MAYOR
+    |MENOR
+    |MAYORIGUAL
+    |MENORIGUAL
+    ;
+
+operadorAsignacion:
+    IGUAL
+    |MASIGUAL
+    |MENOSIGUAL
+    |MULTIPLICACIONIGUAL
+    |DIVISIONIGUAL
+    |MODULOIGUAL
+    ;
+incremento:
+    VARIABLES INCREMENTO
+    |VARIABLES DECREMENTO
+    ;
 
 condicional:
     NUMEROS IGUALIGUAL NUMEROS
