@@ -57,18 +57,25 @@ while_statement:
     }
     ;
 
+<<<<<<< HEAD
 do_while_statement:
+=======
+do_while_statement
+>>>>>>> 4a8069c (DO_WHILE statement)
     DO LLAVEABRIR contenido LLAVECERRAR WHILE PARENTESISABRIR condicional PARENSISCERRAR PUNTOCOMA
     {
         printf("Sentencia do while encontrada y correcta");
     }
 
+<<<<<<< HEAD
 switch_statement:
     SWITCH PARENTESISABRIR VARIABLES PARENSISCERRAR LLAVEABRIR [CASE NUMEROS DOSPUNTOS CONTENIDO BREAK PUNTOCOMA]+ [DEFAULT DOSPUNTOS CONTENIDO BREAK PUNTOCOMA] LLAVECERRAR
     {
         printf("Sentencia switch encontrada y correcta");
     }
 
+=======
+>>>>>>> 4a8069c (DO_WHILE statement)
 inicializacion:
     tipoDeDato VARIABLES 
     ;
