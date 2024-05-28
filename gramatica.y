@@ -36,6 +36,7 @@ programa:
 sentencia:
     if_statement
     |for_statement
+    |while_statement
     ;
 
 if_statement:
@@ -48,6 +49,12 @@ for_statement:
     FOR PARENTESISABRIR inicializacion PUNTOCOMA condicion PUNTOCOMA incremento PARENTESISCERRAR LLAVEABRIR contenido LLAVECERRAR PUNTOCOMA
     {
         printf("Sentencia for encontrada y correcta");
+    }
+    ;
+while_statement:
+    WHILE PARENTESISABRIR condicional PARENTESISCERRAR LLAVEABRIR contenido LLAVECERRAR PUNTOCOMA
+    {
+        printf("Sentencia while encontrada y correcta");
     }
     ;
 
@@ -95,6 +102,7 @@ incremento:
 condicional:
     NUMEROS IGUALIGUAL NUMEROS
     ;
+    
 contenido:
     NUMEROS PUNTOCOMA
     ;
