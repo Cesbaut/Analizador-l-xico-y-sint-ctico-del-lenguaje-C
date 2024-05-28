@@ -15,7 +15,6 @@
 "switch"            { return SWITCH; }
 "enum"              { return ENUM; }
 "union"             { return UNION; }
-"kks"
 
 
 "+"                 { return MAS; }
@@ -26,7 +25,7 @@
 
 
 "="                 { return IGUAL; }
-"+="                { return MASIGAUL; }
+"+="                { return MASIGUAL; }
 "-="                { return MENOSIGUAL; }
 "*="                { return MULTIPLICACIONIGUAL; }
 "/="                { return DIVISIONIGUAL; }
@@ -37,11 +36,11 @@
 "++"                { return INCREMENTO; }
 
 
-"=="                { return IGUAL; }
+"=="                { return IGUALIGUAL; }
 "!="                { return DIFERENTE; }
 ">"                 { return MAYOR; }
 "<"                 { return MENOR; }
-">="                { return MENORIGUAL; }
+">="                { return MAYORIGUAL; }
 "<="                { return MENORIGUAL; }
 
 
@@ -72,11 +71,11 @@
 "["                 { return CORCHETEABRIR; }
 "]"                 { return CORCHETECERRAR; }
 "("                 { return PARENTESISABRIR; }
-")"                 { return PARENSISCERRAR; }
+")"                 { return PARENTESISCERRAR; }
 
 
-'"'                 { return COMILLAS; }
-"'"                 { return COMILLASIMPLE; }
+\"                  { return COMILLAS; }
+\'                  { return COMILLASIMPLE; }
 
 
 [0-9]+                      { yylval = atoi(yytext); return NUMEROS; }

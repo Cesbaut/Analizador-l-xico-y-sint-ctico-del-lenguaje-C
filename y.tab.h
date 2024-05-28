@@ -186,14 +186,60 @@ typedef
 
 
  #line 169 "/usr/share/bison++/bison.h"
-#define	NUMEROS	258
+#define	FOR	258
 #define	IF	259
-#define	IGUAL	260
-#define	PARENTESISABRIR	261
-#define	PARENSISCERRAR	262
-#define	CORCHETEABRIR	263
-#define	CORCHETECERRAR	264
-#define	PUNTOCOMA	265
+#define	ELSE	260
+#define	WHILE	261
+#define	DO	262
+#define	SWITCH	263
+#define	ENUM	264
+#define	UNION	265
+#define	MAS	266
+#define	MENOS	267
+#define	MULTIPLICACION	268
+#define	DIVISION	269
+#define	MODULO	270
+#define	IGUAL	271
+#define	MASIGUAL	272
+#define	MENOSIGUAL	273
+#define	MULTIPLICACIONIGUAL	274
+#define	DIVISIONIGUAL	275
+#define	MODULOIGUAL	276
+#define	DECREMENTO	277
+#define	INCREMENTO	278
+#define	IGUALIGUAL	279
+#define	DIFERENTE	280
+#define	MAYOR	281
+#define	MENOR	282
+#define	MAYORIGUAL	283
+#define	MENORIGUAL	284
+#define	AND	285
+#define	OR	286
+#define	NOT	287
+#define	INT	288
+#define	FLOAT	289
+#define	CHAR	290
+#define	DOUBLE	291
+#define	VOID	292
+#define	SHORT	293
+#define	LONG	294
+#define	SIGNED	295
+#define	UNSIGNED	296
+#define	PUNTOCOMA	297
+#define	COMA	298
+#define	PUNTO	299
+#define	DOSPUNTOS	300
+#define	LLAVEABRIR	301
+#define	LLAVECERRAR	302
+#define	CORCHETEABRIR	303
+#define	CORCHETECERRAR	304
+#define	PARENTESISABRIR	305
+#define	PARENTESISCERRAR	306
+#define	COMILLAS	307
+#define	COMILLASIMPLE	308
+#define	NUMEROS	309
+#define	VARIABLES	310
+#define	CADENA	311
 
 
 #line 169 "/usr/share/bison++/bison.h"
@@ -242,14 +288,60 @@ public:
   /* static const int token ... */
   
  #line 212 "/usr/share/bison++/bison.h"
-static const int NUMEROS;
+static const int FOR;
 static const int IF;
+static const int ELSE;
+static const int WHILE;
+static const int DO;
+static const int SWITCH;
+static const int ENUM;
+static const int UNION;
+static const int MAS;
+static const int MENOS;
+static const int MULTIPLICACION;
+static const int DIVISION;
+static const int MODULO;
 static const int IGUAL;
-static const int PARENTESISABRIR;
-static const int PARENSISCERRAR;
+static const int MASIGUAL;
+static const int MENOSIGUAL;
+static const int MULTIPLICACIONIGUAL;
+static const int DIVISIONIGUAL;
+static const int MODULOIGUAL;
+static const int DECREMENTO;
+static const int INCREMENTO;
+static const int IGUALIGUAL;
+static const int DIFERENTE;
+static const int MAYOR;
+static const int MENOR;
+static const int MAYORIGUAL;
+static const int MENORIGUAL;
+static const int AND;
+static const int OR;
+static const int NOT;
+static const int INT;
+static const int FLOAT;
+static const int CHAR;
+static const int DOUBLE;
+static const int VOID;
+static const int SHORT;
+static const int LONG;
+static const int SIGNED;
+static const int UNSIGNED;
+static const int PUNTOCOMA;
+static const int COMA;
+static const int PUNTO;
+static const int DOSPUNTOS;
+static const int LLAVEABRIR;
+static const int LLAVECERRAR;
 static const int CORCHETEABRIR;
 static const int CORCHETECERRAR;
-static const int PUNTOCOMA;
+static const int PARENTESISABRIR;
+static const int PARENTESISCERRAR;
+static const int COMILLAS;
+static const int COMILLASIMPLE;
+static const int NUMEROS;
+static const int VARIABLES;
+static const int CADENA;
 
 
 #line 212 "/usr/share/bison++/bison.h"
@@ -258,14 +350,60 @@ static const int PUNTOCOMA;
   enum YY_parse_ENUM_TOKEN { YY_parse_NULL_TOKEN=0
   
  #line 215 "/usr/share/bison++/bison.h"
-	,NUMEROS=258
+	,FOR=258
 	,IF=259
-	,IGUAL=260
-	,PARENTESISABRIR=261
-	,PARENSISCERRAR=262
-	,CORCHETEABRIR=263
-	,CORCHETECERRAR=264
-	,PUNTOCOMA=265
+	,ELSE=260
+	,WHILE=261
+	,DO=262
+	,SWITCH=263
+	,ENUM=264
+	,UNION=265
+	,MAS=266
+	,MENOS=267
+	,MULTIPLICACION=268
+	,DIVISION=269
+	,MODULO=270
+	,IGUAL=271
+	,MASIGUAL=272
+	,MENOSIGUAL=273
+	,MULTIPLICACIONIGUAL=274
+	,DIVISIONIGUAL=275
+	,MODULOIGUAL=276
+	,DECREMENTO=277
+	,INCREMENTO=278
+	,IGUALIGUAL=279
+	,DIFERENTE=280
+	,MAYOR=281
+	,MENOR=282
+	,MAYORIGUAL=283
+	,MENORIGUAL=284
+	,AND=285
+	,OR=286
+	,NOT=287
+	,INT=288
+	,FLOAT=289
+	,CHAR=290
+	,DOUBLE=291
+	,VOID=292
+	,SHORT=293
+	,LONG=294
+	,SIGNED=295
+	,UNSIGNED=296
+	,PUNTOCOMA=297
+	,COMA=298
+	,PUNTO=299
+	,DOSPUNTOS=300
+	,LLAVEABRIR=301
+	,LLAVECERRAR=302
+	,CORCHETEABRIR=303
+	,CORCHETECERRAR=304
+	,PARENTESISABRIR=305
+	,PARENTESISCERRAR=306
+	,COMILLAS=307
+	,COMILLASIMPLE=308
+	,NUMEROS=309
+	,VARIABLES=310
+	,CADENA=311
 
 
 #line 215 "/usr/share/bison++/bison.h"

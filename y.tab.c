@@ -306,14 +306,60 @@ typedef
 /* TOKEN C */
 
  #line 263 "/usr/share/bison++/bison.cc"
-#define	NUMEROS	258
+#define	FOR	258
 #define	IF	259
-#define	IGUAL	260
-#define	PARENTESISABRIR	261
-#define	PARENSISCERRAR	262
-#define	CORCHETEABRIR	263
-#define	CORCHETECERRAR	264
-#define	PUNTOCOMA	265
+#define	ELSE	260
+#define	WHILE	261
+#define	DO	262
+#define	SWITCH	263
+#define	ENUM	264
+#define	UNION	265
+#define	MAS	266
+#define	MENOS	267
+#define	MULTIPLICACION	268
+#define	DIVISION	269
+#define	MODULO	270
+#define	IGUAL	271
+#define	MASIGUAL	272
+#define	MENOSIGUAL	273
+#define	MULTIPLICACIONIGUAL	274
+#define	DIVISIONIGUAL	275
+#define	MODULOIGUAL	276
+#define	DECREMENTO	277
+#define	INCREMENTO	278
+#define	IGUALIGUAL	279
+#define	DIFERENTE	280
+#define	MAYOR	281
+#define	MENOR	282
+#define	MAYORIGUAL	283
+#define	MENORIGUAL	284
+#define	AND	285
+#define	OR	286
+#define	NOT	287
+#define	INT	288
+#define	FLOAT	289
+#define	CHAR	290
+#define	DOUBLE	291
+#define	VOID	292
+#define	SHORT	293
+#define	LONG	294
+#define	SIGNED	295
+#define	UNSIGNED	296
+#define	PUNTOCOMA	297
+#define	COMA	298
+#define	PUNTO	299
+#define	DOSPUNTOS	300
+#define	LLAVEABRIR	301
+#define	LLAVECERRAR	302
+#define	CORCHETEABRIR	303
+#define	CORCHETECERRAR	304
+#define	PARENTESISABRIR	305
+#define	PARENTESISCERRAR	306
+#define	COMILLAS	307
+#define	COMILLASIMPLE	308
+#define	NUMEROS	309
+#define	VARIABLES	310
+#define	CADENA	311
 
 
 #line 263 "/usr/share/bison++/bison.cc"
@@ -363,14 +409,60 @@ public:
 /* static const int token ... */
 
  #line 307 "/usr/share/bison++/bison.cc"
-static const int NUMEROS;
+static const int FOR;
 static const int IF;
+static const int ELSE;
+static const int WHILE;
+static const int DO;
+static const int SWITCH;
+static const int ENUM;
+static const int UNION;
+static const int MAS;
+static const int MENOS;
+static const int MULTIPLICACION;
+static const int DIVISION;
+static const int MODULO;
 static const int IGUAL;
-static const int PARENTESISABRIR;
-static const int PARENSISCERRAR;
+static const int MASIGUAL;
+static const int MENOSIGUAL;
+static const int MULTIPLICACIONIGUAL;
+static const int DIVISIONIGUAL;
+static const int MODULOIGUAL;
+static const int DECREMENTO;
+static const int INCREMENTO;
+static const int IGUALIGUAL;
+static const int DIFERENTE;
+static const int MAYOR;
+static const int MENOR;
+static const int MAYORIGUAL;
+static const int MENORIGUAL;
+static const int AND;
+static const int OR;
+static const int NOT;
+static const int INT;
+static const int FLOAT;
+static const int CHAR;
+static const int DOUBLE;
+static const int VOID;
+static const int SHORT;
+static const int LONG;
+static const int SIGNED;
+static const int UNSIGNED;
+static const int PUNTOCOMA;
+static const int COMA;
+static const int PUNTO;
+static const int DOSPUNTOS;
+static const int LLAVEABRIR;
+static const int LLAVECERRAR;
 static const int CORCHETEABRIR;
 static const int CORCHETECERRAR;
-static const int PUNTOCOMA;
+static const int PARENTESISABRIR;
+static const int PARENTESISCERRAR;
+static const int COMILLAS;
+static const int COMILLASIMPLE;
+static const int NUMEROS;
+static const int VARIABLES;
+static const int CADENA;
 
 
 #line 307 "/usr/share/bison++/bison.cc"
@@ -379,14 +471,60 @@ static const int PUNTOCOMA;
 enum YY_parse_ENUM_TOKEN { YY_parse_NULL_TOKEN=0
 
  #line 310 "/usr/share/bison++/bison.cc"
-	,NUMEROS=258
+	,FOR=258
 	,IF=259
-	,IGUAL=260
-	,PARENTESISABRIR=261
-	,PARENSISCERRAR=262
-	,CORCHETEABRIR=263
-	,CORCHETECERRAR=264
-	,PUNTOCOMA=265
+	,ELSE=260
+	,WHILE=261
+	,DO=262
+	,SWITCH=263
+	,ENUM=264
+	,UNION=265
+	,MAS=266
+	,MENOS=267
+	,MULTIPLICACION=268
+	,DIVISION=269
+	,MODULO=270
+	,IGUAL=271
+	,MASIGUAL=272
+	,MENOSIGUAL=273
+	,MULTIPLICACIONIGUAL=274
+	,DIVISIONIGUAL=275
+	,MODULOIGUAL=276
+	,DECREMENTO=277
+	,INCREMENTO=278
+	,IGUALIGUAL=279
+	,DIFERENTE=280
+	,MAYOR=281
+	,MENOR=282
+	,MAYORIGUAL=283
+	,MENORIGUAL=284
+	,AND=285
+	,OR=286
+	,NOT=287
+	,INT=288
+	,FLOAT=289
+	,CHAR=290
+	,DOUBLE=291
+	,VOID=292
+	,SHORT=293
+	,LONG=294
+	,SIGNED=295
+	,UNSIGNED=296
+	,PUNTOCOMA=297
+	,COMA=298
+	,PUNTO=299
+	,DOSPUNTOS=300
+	,LLAVEABRIR=301
+	,LLAVECERRAR=302
+	,CORCHETEABRIR=303
+	,CORCHETECERRAR=304
+	,PARENTESISABRIR=305
+	,PARENTESISCERRAR=306
+	,COMILLAS=307
+	,COMILLASIMPLE=308
+	,NUMEROS=309
+	,VARIABLES=310
+	,CADENA=311
 
 
 #line 310 "/usr/share/bison++/bison.cc"
@@ -423,14 +561,60 @@ public:
 #if YY_parse_USE_CONST_TOKEN != 0
 
  #line 341 "/usr/share/bison++/bison.cc"
-const int YY_parse_CLASS::NUMEROS=258;
+const int YY_parse_CLASS::FOR=258;
 const int YY_parse_CLASS::IF=259;
-const int YY_parse_CLASS::IGUAL=260;
-const int YY_parse_CLASS::PARENTESISABRIR=261;
-const int YY_parse_CLASS::PARENSISCERRAR=262;
-const int YY_parse_CLASS::CORCHETEABRIR=263;
-const int YY_parse_CLASS::CORCHETECERRAR=264;
-const int YY_parse_CLASS::PUNTOCOMA=265;
+const int YY_parse_CLASS::ELSE=260;
+const int YY_parse_CLASS::WHILE=261;
+const int YY_parse_CLASS::DO=262;
+const int YY_parse_CLASS::SWITCH=263;
+const int YY_parse_CLASS::ENUM=264;
+const int YY_parse_CLASS::UNION=265;
+const int YY_parse_CLASS::MAS=266;
+const int YY_parse_CLASS::MENOS=267;
+const int YY_parse_CLASS::MULTIPLICACION=268;
+const int YY_parse_CLASS::DIVISION=269;
+const int YY_parse_CLASS::MODULO=270;
+const int YY_parse_CLASS::IGUAL=271;
+const int YY_parse_CLASS::MASIGUAL=272;
+const int YY_parse_CLASS::MENOSIGUAL=273;
+const int YY_parse_CLASS::MULTIPLICACIONIGUAL=274;
+const int YY_parse_CLASS::DIVISIONIGUAL=275;
+const int YY_parse_CLASS::MODULOIGUAL=276;
+const int YY_parse_CLASS::DECREMENTO=277;
+const int YY_parse_CLASS::INCREMENTO=278;
+const int YY_parse_CLASS::IGUALIGUAL=279;
+const int YY_parse_CLASS::DIFERENTE=280;
+const int YY_parse_CLASS::MAYOR=281;
+const int YY_parse_CLASS::MENOR=282;
+const int YY_parse_CLASS::MAYORIGUAL=283;
+const int YY_parse_CLASS::MENORIGUAL=284;
+const int YY_parse_CLASS::AND=285;
+const int YY_parse_CLASS::OR=286;
+const int YY_parse_CLASS::NOT=287;
+const int YY_parse_CLASS::INT=288;
+const int YY_parse_CLASS::FLOAT=289;
+const int YY_parse_CLASS::CHAR=290;
+const int YY_parse_CLASS::DOUBLE=291;
+const int YY_parse_CLASS::VOID=292;
+const int YY_parse_CLASS::SHORT=293;
+const int YY_parse_CLASS::LONG=294;
+const int YY_parse_CLASS::SIGNED=295;
+const int YY_parse_CLASS::UNSIGNED=296;
+const int YY_parse_CLASS::PUNTOCOMA=297;
+const int YY_parse_CLASS::COMA=298;
+const int YY_parse_CLASS::PUNTO=299;
+const int YY_parse_CLASS::DOSPUNTOS=300;
+const int YY_parse_CLASS::LLAVEABRIR=301;
+const int YY_parse_CLASS::LLAVECERRAR=302;
+const int YY_parse_CLASS::CORCHETEABRIR=303;
+const int YY_parse_CLASS::CORCHETECERRAR=304;
+const int YY_parse_CLASS::PARENTESISABRIR=305;
+const int YY_parse_CLASS::PARENTESISCERRAR=306;
+const int YY_parse_CLASS::COMILLAS=307;
+const int YY_parse_CLASS::COMILLASIMPLE=308;
+const int YY_parse_CLASS::NUMEROS=309;
+const int YY_parse_CLASS::VARIABLES=310;
+const int YY_parse_CLASS::CADENA=311;
 
 
 #line 341 "/usr/share/bison++/bison.cc"
@@ -451,9 +635,9 @@ YY_parse_CONSTRUCTOR_CODE;
 
 #define	YYFINAL		18
 #define	YYFLAG		-32768
-#define	YYNTBASE	11
+#define	YYNTBASE	57
 
-#define YYTRANSLATE(x) ((unsigned)(x) <= 265 ? yytranslate[x] : 16)
+#define YYTRANSLATE(x) ((unsigned)(x) <= 311 ? yytranslate[x] : 62)
 
 static const char yytranslate[] = {     0,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -482,7 +666,12 @@ static const char yytranslate[] = {     0,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
      2,     2,     2,     2,     2,     1,     2,     3,     4,     5,
-     6,     7,     8,     9,    10
+     6,     7,     8,     9,    10,    11,    12,    13,    14,    15,
+    16,    17,    18,    19,    20,    21,    22,    23,    24,    25,
+    26,    27,    28,    29,    30,    31,    32,    33,    34,    35,
+    36,    37,    38,    39,    40,    41,    42,    43,    44,    45,
+    46,    47,    48,    49,    50,    51,    52,    53,    54,    55,
+    56
 };
 
 #if YY_parse_DEBUG != 0
@@ -491,8 +680,8 @@ static const short yyprhs[] = {     0,
 };
 
 static const short yyrhs[] = {    -1,
-    11,    12,     0,    13,     0,     4,     6,    14,     7,     8,
-    15,     9,    10,     0,     3,     5,     3,     0,     3,    10,
+    57,    58,     0,    59,     0,     4,    50,    60,    51,    46,
+    61,    47,    42,     0,    54,    24,    54,     0,    54,    42,
      0
 };
 
@@ -500,18 +689,23 @@ static const short yyrhs[] = {    -1,
 
 #if (YY_parse_DEBUG != 0) || defined(YY_parse_ERROR_VERBOSE) 
 static const short yyrline[] = { 0,
-    15,    17,    20,    24,    30,    33
+    31,    33,    36,    40,    46,    49
 };
 
-static const char * const yytname[] = {   "$","error","$illegal.","NUMEROS",
-"IF","IGUAL","PARENTESISABRIR","PARENSISCERRAR","CORCHETEABRIR","CORCHETECERRAR",
-"PUNTOCOMA","programa","sentencia","if_statement","condicional","contenido",
-""
+static const char * const yytname[] = {   "$","error","$illegal.","FOR","IF",
+"ELSE","WHILE","DO","SWITCH","ENUM","UNION","MAS","MENOS","MULTIPLICACION","DIVISION",
+"MODULO","IGUAL","MASIGUAL","MENOSIGUAL","MULTIPLICACIONIGUAL","DIVISIONIGUAL",
+"MODULOIGUAL","DECREMENTO","INCREMENTO","IGUALIGUAL","DIFERENTE","MAYOR","MENOR",
+"MAYORIGUAL","MENORIGUAL","AND","OR","NOT","INT","FLOAT","CHAR","DOUBLE","VOID",
+"SHORT","LONG","SIGNED","UNSIGNED","PUNTOCOMA","COMA","PUNTO","DOSPUNTOS","LLAVEABRIR",
+"LLAVECERRAR","CORCHETEABRIR","CORCHETECERRAR","PARENTESISABRIR","PARENTESISCERRAR",
+"COMILLAS","COMILLASIMPLE","NUMEROS","VARIABLES","CADENA","programa","sentencia",
+"if_statement","condicional","contenido",""
 };
 #endif
 
 static const short yyr1[] = {     0,
-    11,    11,    12,    13,    14,    15
+    57,    57,    58,    59,    60,    61
 };
 
 static const short yyr2[] = {     0,
@@ -528,8 +722,8 @@ static const short yydefgoto[] = {     1,
 };
 
 static const short yypact[] = {-32768,
-     0,    -5,-32768,-32768,    -1,    -2,     1,     2,     3,-32768,
-     4,    -4,     5,-32768,     6,-32768,     9,-32768
+     0,   -49,-32768,-32768,   -52,   -21,   -46,   -48,   -39,-32768,
+   -45,   -34,   -37,-32768,   -31,-32768,    12,-32768
 };
 
 static const short yypgoto[] = {-32768,
@@ -537,17 +731,17 @@ static const short yypgoto[] = {-32768,
 };
 
 
-#define	YYLAST		16
+#define	YYLAST		12
 
 
 static const short yytable[] = {    17,
-     5,     6,     8,     2,    10,    14,    12,     9,    18,     0,
-    11,     0,     0,    15,     0,    16
+     5,     6,     8,     2,     9,    10,    11,    14,    12,    15,
+    16,    18
 };
 
 static const short yycheck[] = {     0,
-     6,     3,     5,     4,     3,    10,     3,     7,     0,    -1,
-     8,    -1,    -1,     9,    -1,    10
+    50,    54,    24,     4,    51,    54,    46,    42,    54,    47,
+    42,     0
 };
 
 #line 352 "/usr/share/bison++/bison.cc"
@@ -1044,7 +1238,7 @@ YYLABEL(yyreduce)
   switch (yyn) {
 
 case 4:
-#line 26 "gramatica.y"
+#line 42 "gramatica.y"
 {
         printf("Sentencia if encontrada y correcta");
     ;
@@ -1253,7 +1447,8 @@ YYLABEL(yyerrhandle)
 /* END */
 
  #line 1038 "/usr/share/bison++/bison.cc"
-#line 62 "gramatica.y"
+#line 54 "gramatica.y"
+
 
 
 void yyerror(const char *s) {
