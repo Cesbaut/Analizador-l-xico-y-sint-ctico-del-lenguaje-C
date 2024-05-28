@@ -57,10 +57,16 @@ while_statement:
     }
     ;
 
-do_while_statement
+do_while_statement:
     DO LLAVEABRIR contenido LLAVECERRAR WHILE PARENTESISABRIR condicional PARENSISCERRAR PUNTOCOMA
     {
         printf("Sentencia do while encontrada y correcta");
+    }
+
+switch_statement:
+    SWITCH PARENTESISABRIR VARIABLES PARENSISCERRAR LLAVEABRIR [CASE NUMEROS DOSPUNTOS CONTENIDO BREAK PUNTOCOMA]+ [DEFAULT DOSPUNTOS CONTENIDO BREAK PUNTOCOMA]+ LLAVECERRAR
+    {
+        printf("Sentencia switch encontrada y correcta");
     }
 
 inicializacion:

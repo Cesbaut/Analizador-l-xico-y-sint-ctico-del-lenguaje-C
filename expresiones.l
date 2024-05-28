@@ -13,6 +13,9 @@
 "while"             { return WHILE; }
 "do"                { return DO; }
 "switch"            { return SWITCH; }
+"case"              { return CASE; }
+"break"             { return BREAK; }
+"default"           { return DEFAULT; }
 "enum"              { return ENUM; }
 "union"             { return UNION; }
 
