@@ -172,5 +172,8 @@ void yyerror(const char *s) {
 }
 
 int main(void) {
+
+    printf("Hola mundo!. Esta es una prueba\n");
+
     return yyparse();
 }
