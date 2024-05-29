@@ -13,11 +13,12 @@
 "while"             { return WHILE; }
 "do"                { return DO; }
 "switch"            { return SWITCH; }
+"printf"            { return PRINTF; }
+
 "case"              { return CASE; }
 "break"             { return BREAK; }
 "default"           { return DEFAULT; }
-"enum"              { return ENUM; }
-"union"             { return UNION; }
+
 
 
 "+"                 { return MAS; }

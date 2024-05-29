@@ -8,7 +8,7 @@ int yylex(void);
 
 
 
-%token FOR IF ELSE WHILE DO SWITCH ENUM UNION CASE BREAK DEFAULT
+%token FOR IF ELSE WHILE DO SWITCH CASE BREAK DEFAULT PRINTF
 %token MAS MENOS MULTIPLICACION DIVISION MODULO
 %token IGUAL MASIGUAL MENOSIGUAL MULTIPLICACIONIGUAL DIVISIONIGUAL MODULOIGUAL
 %token DECREMENTO INCREMENTO
@@ -39,22 +39,25 @@ sentencia:
     |while_statement
     |do_while_statement
     |switch_statement
+    |impresion          
+    |asigancionVariable
+    |operacion
     ;
 
 if_statement:
-    IF PARENTESISABRIR condicional PARENTESISCERRAR LLAVEABRIR contenido LLAVECERRAR PUNTOCOMA
+    IF PARENTESISABRIR condicion PARENTESISCERRAR LLAVEABRIR contenido LLAVECERRAR 
     {
         printf("Sentencia if encontrada y correcta");
     }
     ;
 for_statement:
-    FOR PARENTESISABRIR inicializacion PUNTOCOMA condicion PUNTOCOMA incremento PARENTESISCERRAR LLAVEABRIR contenido LLAVECERRAR PUNTOCOMA
+    FOR PARENTESISABRIR inicializacion PUNTOCOMA condicion PUNTOCOMA incremento PARENTESISCERRAR LLAVEABRIR contenido LLAVECERRAR
     {
         printf("Sentencia for encontrada y correcta");
     }
     ;
 while_statement:
-    WHILE PARENTESISABRIR condicional PARENTESISCERRAR LLAVEABRIR contenido LLAVECERRAR PUNTOCOMA
+    WHILE PARENTESISABRIR condicion PARENTESISCERRAR LLAVEABRIR contenido LLAVECERRAR
     {
         printf("Sentencia while encontrada y correcta");
     }
@@ -62,7 +65,7 @@ while_statement:
 
 
 do_while_statement:
-    DO LLAVEABRIR contenido LLAVECERRAR WHILE PARENTESISABRIR condicional PARENTESISCERRAR PUNTOCOMA
+    DO LLAVEABRIR contenido LLAVECERRAR WHILE PARENTESISABRIR condicion PARENTESISCERRAR PUNTOCOMA
     {
         printf("Sentencia do while encontrada y correcta");
     }
@@ -89,7 +92,7 @@ default_clause_opt:
     ;
 
 inicializacion:
-    tipoDeDato VARIABLES IGUAL NUMEROS
+    tipoDeDato VARIABLES IGUAL opcion
     ;
 tipoDeDato:
     INT
@@ -103,7 +106,14 @@ tipoDeDato:
     |UNSIGNED
     ;
 condicion:
-    VARIABLES operadorRelacional NUMEROS
+    opcion operadorRelacional opcion
+    | opcion operadorLogico opcion
+    | NOT condicion
+    | PARENTESISABRIR condicion PARENTESISCERRAR
+    ;
+operadorLogico:
+    AND
+    | OR
     ;
 
 operadorRelacional:
@@ -127,15 +137,33 @@ incremento:
     VARIABLES INCREMENTO
     |VARIABLES DECREMENTO
     ;
-
-condicional:
-    NUMEROS IGUALIGUAL NUMEROS
-    ;
-    
 contenido:
-    NUMEROS PUNTOCOMA
+    /* vacío */           /* Añadido para permitir vacío */
+    | contenido sentencia /* Permitir múltiples sentencias */
     ;
-
+impresion:
+    PRINTF PARENTESISABRIR CADENA PARENTESISCERRAR PUNTOCOMA
+    ;
+asigancionVariable:
+    tipoDeDato VARIABLES IGUAL opcion PUNTOCOMA
+    |tipoDeDato VARIABLES IGUAL CADENA PUNTOCOMA
+    ;
+operacion:
+    VARIABLES IGUAL opcion operador opcion PUNTOCOMA
+    ;
+opcion:
+    NUMEROS
+    | VARIABLES
+    | opcion operador opcion
+    | PARENTESISABRIR opcion PARENTESISCERRAR
+    ;
+operador:
+    MAS
+    |MENOS
+    |MULTIPLICACION
+    |DIVISION
+    |MODULO
+    ;
 %%
 
 
