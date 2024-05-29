@@ -298,7 +298,7 @@ int main(void) {
     printf("------\n\n");
 
     printf("---DELIMITADORES DE CARACTERES---\n\n");
-    printf(""\n");
+    printf("\"\n");
     printf("'\n");
     printf("------\n\n");
 
