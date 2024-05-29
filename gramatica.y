@@ -234,5 +234,73 @@ int main(void) {
     printf("%=\n");
     printf("------\n\n");
 
+    printf("---INCREMENTO Y DECREMENTO---\n\n");
+    printf("--\n");
+    printf("++\n");
+    printf("------\n\n");
+
+    printf("---OPERADORES DE ASIGNACION---\n\n");
+    printf("=\n");
+    printf("+=\n");
+    printf("-=\n");
+    printf("*=\n");
+    printf("/=\n");
+    printf("%=\n");
+    printf("------\n\n");
+
+    printf("---OPERADORES RELACIONALES---\n\n");
+    printf("==\n");
+    printf("!=\n");
+    printf(">\n");
+    printf("<\n");
+    printf(">=\n");
+    printf("<=\n");
+    printf("------\n\n");
+
+    printf("---OPERADORES LOGICOS---\n\n");
+    printf("&&\n");
+    printf("||\n");
+    printf("!\n");
+    printf("------\n\n");
+
+    printf("---TIPOS DE VARIABLES---\n\n");
+    printf("int\n");
+    printf("float\n");
+    printf("chart\n");
+    printf("double\n");
+    printf("void\n");
+    printf("short\n");
+    printf("long\n");
+    printf("signed\n");
+    printf("unsigned\n");
+    printf("------\n\n");
+
+    printf("---OPERADORES LOGICOS---\n\n");
+    printf(";\n");
+    printf(",\n");
+    printf(".\n");
+    printf(":\n");
+    printf("------\n\n");
+
+    printf("---OPERADORES LOGICOS---\n\n");
+    printf("&&\n");
+    printf("||\n");
+    printf("!\n");
+    printf("------\n\n");
+
+    printf("---DELIMITADORES---\n\n");
+    printf("{\n");
+    printf("}\n");
+    printf("[\n");
+    printf("]\n");
+    printf("(\n");
+    printf(")\n");
+    printf("------\n\n");
+
+    printf("---DELIMITADORES DE CARACTERES---\n\n");
+    printf(""\n");
+    printf("'\n");
+    printf("------\n\n");
+
     return yyparse();
 }
