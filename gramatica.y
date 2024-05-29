@@ -173,7 +173,51 @@ void yyerror(const char *s) {
 
 int main(void) {
 
-    printf("Hola mundo!. Esta es una prueba\n");
+    printf("------\n");
+    printf("FOR\n");
+    printf("for(TIPO_DE_DATO VARIABLE IGUAL NUMERO; VARIABLE CONDICION NUMERO; VARIABLE INCREMENTO_DECREMENTO){\n");
+    printf("    CONTENIDO\n");
+    printf("}\n");
+    printf("------\n\n");
+
+    printf("WHILE\n");
+    printf("while(CONDICION){\n");
+    printf("    CONTENIDO\n");
+    printf("}\n");
+    printf("------\n\n");
+
+    printf("DO-WHILE\n");
+    printf("do {\n");
+    printf("    CONTENIDO\n");
+    printf("} while(CONDICION);\n");
+    printf("------\n\n");
+
+    printf("IF\n");
+    printf("if(CONDICION){\n");
+    printf("    CONTENIDO\n");
+    printf("}\n");
+    printf("------\n\n");
+
+    printf("IF-ELSE\n");
+    printf("if(CONDICION){\n");
+    printf("    CONTENIDO\n");
+    printf("} else {\n");
+    printf("    CONTENIDO\n");
+    printf("}\n");
+    printf("------\n\n");
+
+    printf("SWITCH\n");
+    printf("switch(EXPRESION){\n");
+    printf("    case VALOR1:\n");
+    printf("        CONTENIDO\n");
+    printf("        break;\n");
+    printf("    case VALOR2:\n");
+    printf("        CONTENIDO\n");
+    printf("        break;\n");
+    printf("    default:\n");
+    printf("        CONTENIDO\n");
+    printf("}\n");
+    printf("------\n\n");
 
     return yyparse();
 }
