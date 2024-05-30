@@ -1,8 +1,12 @@
 %{
 #include "y.tab.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+extern FILE *errorFile;
+extern int numError;
+
 %}
-
-
 
 %%
 
@@ -85,6 +89,7 @@
 [0-9]+                      { yylval = atoi(yytext); return NUMEROS; }
 [a-zA-Z_][a-zA-Z0-9_]*      { return VARIABLES; }
 \"(\\.|[^\"\\])*\"          { return CADENA; }
+.                           { fprintf(errorFile, "%d \t Token desconocido '%s'\n", numError, yytext); numError++; }
 
 
 %%

@@ -1,0 +1,3 @@
+Tabla Errores
+0 	 Token desconocido '~'
+1 	 syntax error

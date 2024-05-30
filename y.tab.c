@@ -191,8 +191,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+FILE *errorFile;
+extern FILE *yyin;
 void yyerror(const char *s);
 int yylex(void);
+int numError = 0;
 
 
 /* Enabling traces.  */
@@ -226,7 +229,7 @@ typedef int YYSTYPE;
 
 
 /* Line 216 of yacc.c.  */
-#line 230 "y.tab.c"
+#line 233 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -1609,7 +1612,7 @@ yyreduce:
 
 
 /* Line 1267 of yacc.c.  */
-#line 1613 "y.tab.c"
+#line 1616 "y.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1828,12 +1831,19 @@ yyreturn:
 
 
 void yyerror(const char *s) {
-    fprintf(stderr, "Error: %s\n", s);
+    if(errorFile == NULL){
+        errorFile = fopen("errores.txt", "w");
+        if(errorFile == NULL){
+            perror("Could not open errores.txt");
+            exit(EXIT_FAILURE);
+        }
+    }
+    fprintf(errorFile, "%d \t %s\n", numError, s);
+    numError++;
 }
 
-int main(void) {
-
-    printf("---FOR---\n");
+void imprimirInfo(){
+    printf("\n---FOR---\n");
     printf("for(TIPO_DE_DATO VARIABLE IGUAL NUMERO; VARIABLE CONDICION NUMERO; VARIABLE INCREMENTO_DECREMENTO){\n");
     printf("    CONTENIDO\n");
     printf("}\n");
@@ -1878,7 +1888,7 @@ int main(void) {
     printf("}\n");
     printf("------\n\n");
 
-    printf("---OPERADORES---\n\n");
+    printf("---OPERADORES---\n");
     printf("+\n");
     printf("-\n");
     printf("*\n");
@@ -1947,7 +1957,38 @@ int main(void) {
     printf("\"\n");
     printf("'\n");
     printf("------\n\n");
+}
 
-    return yyparse();
+int main(int argc, char **argv) {
+
+    FILE *inputFile = NULL;
+
+    imprimirInfo();
+
+    errorFile = fopen("errores.txt", "w");
+    if(errorFile==NULL){
+        perror("Could not open errores.txt");
+        return 1;
+    }
+    fprintf(errorFile, "Tabla Errores\n");
+
+    if(argc>1){
+        inputFile = fopen(argv[1], "r");
+        if (!inputFile){
+            perror("Could not open input file");
+            return 1;
+        }
+        yyin = inputFile;
+    }
+    
+    yyparse();
+
+    if(inputFile){
+        fclose(inputFile);
+    }
+
+    fclose(errorFile);
+
+    return 0;
 }
 
