@@ -2,9 +2,15 @@
 #include "y.tab.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-extern FILE *errorFile;
-extern int numError;
+extern void addString(char ***array, int *size, const char *newString);
+extern char **arregloErrores;
+extern int tamErrores;
+extern char **arregloVariables;
+extern int tamVariables;
+extern char **arregloCadenas;
+extern int tamCadenas;
 
 %}
 
@@ -87,9 +93,9 @@ extern int numError;
 
 
 [0-9]+                      { yylval = atoi(yytext); return NUMEROS; }
-[a-zA-Z_][a-zA-Z0-9_]*      { return VARIABLES; }
-\"(\\.|[^\"\\])*\"          { return CADENA; }
-.                           { fprintf(errorFile, "%d \t Token desconocido '%s'\n", numError, yytext); numError++; }
+[a-zA-Z_][a-zA-Z0-9_]*      { addString(&arregloVariables, &tamVariables, yytext); return VARIABLES; }
+\"(\\.|[^\"\\])*\"          { addString(&arregloCadenas, &tamCadenas, yytext); return CADENA; }
+.                           { addString(&arregloErrores, &tamErrores, yytext); }
 
 
 %%

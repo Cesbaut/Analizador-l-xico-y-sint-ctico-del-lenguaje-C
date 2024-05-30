@@ -1,3 +1,14 @@
+Tabla Variables
+	0	x
+	1	i
+	2	y
+
+
+
+Tabla Cadenas
+	0	"Hola Mundo"
+
+
+
 Tabla Errores
-0 	 Token desconocido '~'
-1 	 syntax error
+	0	syntax error

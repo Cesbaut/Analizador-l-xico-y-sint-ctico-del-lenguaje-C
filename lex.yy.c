@@ -529,12 +529,18 @@ char *yytext;
 #include "y.tab.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-extern FILE *errorFile;
-extern int numError;
+extern void addString(char ***array, int *size, const char *newString);
+extern char **arregloErrores;
+extern int tamErrores;
+extern char **arregloVariables;
+extern int tamVariables;
+extern char **arregloCadenas;
+extern int tamCadenas;
 
-#line 536 "lex.yy.c"
-#line 537 "lex.yy.c"
+#line 542 "lex.yy.c"
+#line 543 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -751,11 +757,11 @@ YY_DECL
 		}
 
 	{
-#line 11 "expresiones.l"
+#line 17 "expresiones.l"
 
 
 
-#line 758 "lex.yy.c"
+#line 764 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -814,296 +820,296 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 14 "expresiones.l"
+#line 20 "expresiones.l"
 { return FOR; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 15 "expresiones.l"
+#line 21 "expresiones.l"
 { return IF; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 16 "expresiones.l"
+#line 22 "expresiones.l"
 { return ELSE; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 17 "expresiones.l"
+#line 23 "expresiones.l"
 { return WHILE; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 18 "expresiones.l"
+#line 24 "expresiones.l"
 { return DO; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 19 "expresiones.l"
+#line 25 "expresiones.l"
 { return SWITCH; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 20 "expresiones.l"
+#line 26 "expresiones.l"
 { return PRINTF; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 22 "expresiones.l"
+#line 28 "expresiones.l"
 { return CASE; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 23 "expresiones.l"
+#line 29 "expresiones.l"
 { return BREAK; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 24 "expresiones.l"
+#line 30 "expresiones.l"
 { return DEFAULT; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 28 "expresiones.l"
+#line 34 "expresiones.l"
 { return MAS; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 29 "expresiones.l"
+#line 35 "expresiones.l"
 { return MENOS; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 30 "expresiones.l"
+#line 36 "expresiones.l"
 { return MULTIPLICACION; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 31 "expresiones.l"
+#line 37 "expresiones.l"
 { return DIVISION; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 32 "expresiones.l"
+#line 38 "expresiones.l"
 { return MODULO; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 35 "expresiones.l"
+#line 41 "expresiones.l"
 { return IGUAL; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 36 "expresiones.l"
+#line 42 "expresiones.l"
 { return MASIGUAL; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 37 "expresiones.l"
+#line 43 "expresiones.l"
 { return MENOSIGUAL; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 38 "expresiones.l"
+#line 44 "expresiones.l"
 { return MULTIPLICACIONIGUAL; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 39 "expresiones.l"
+#line 45 "expresiones.l"
 { return DIVISIONIGUAL; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 40 "expresiones.l"
+#line 46 "expresiones.l"
 { return MODULOIGUAL; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 43 "expresiones.l"
+#line 49 "expresiones.l"
 { return DECREMENTO; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 44 "expresiones.l"
+#line 50 "expresiones.l"
 { return INCREMENTO; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 47 "expresiones.l"
+#line 53 "expresiones.l"
 { return IGUALIGUAL; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 48 "expresiones.l"
+#line 54 "expresiones.l"
 { return DIFERENTE; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 49 "expresiones.l"
+#line 55 "expresiones.l"
 { return MAYOR; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 50 "expresiones.l"
+#line 56 "expresiones.l"
 { return MENOR; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 51 "expresiones.l"
+#line 57 "expresiones.l"
 { return MAYORIGUAL; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 52 "expresiones.l"
+#line 58 "expresiones.l"
 { return MENORIGUAL; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 55 "expresiones.l"
+#line 61 "expresiones.l"
 { return AND; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 56 "expresiones.l"
+#line 62 "expresiones.l"
 { return OR; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 57 "expresiones.l"
+#line 63 "expresiones.l"
 { return NOT; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 60 "expresiones.l"
+#line 66 "expresiones.l"
 { return INT; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 61 "expresiones.l"
+#line 67 "expresiones.l"
 { return FLOAT; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 62 "expresiones.l"
+#line 68 "expresiones.l"
 { return CHAR; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 63 "expresiones.l"
+#line 69 "expresiones.l"
 { return DOUBLE; }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 64 "expresiones.l"
+#line 70 "expresiones.l"
 { return VOID; }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 65 "expresiones.l"
+#line 71 "expresiones.l"
 { return SHORT; }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 66 "expresiones.l"
+#line 72 "expresiones.l"
 { return LONG; }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 67 "expresiones.l"
+#line 73 "expresiones.l"
 { return SIGNED; }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 68 "expresiones.l"
+#line 74 "expresiones.l"
 { return UNSIGNED; }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 71 "expresiones.l"
+#line 77 "expresiones.l"
 { return PUNTOCOMA; }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 72 "expresiones.l"
+#line 78 "expresiones.l"
 { return COMA; }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 73 "expresiones.l"
+#line 79 "expresiones.l"
 { return PUNTO; }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 74 "expresiones.l"
+#line 80 "expresiones.l"
 { return DOSPUNTOS; }
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 77 "expresiones.l"
+#line 83 "expresiones.l"
 { return LLAVEABRIR; }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 78 "expresiones.l"
+#line 84 "expresiones.l"
 { return LLAVECERRAR; }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 79 "expresiones.l"
+#line 85 "expresiones.l"
 { return CORCHETEABRIR; }
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 80 "expresiones.l"
+#line 86 "expresiones.l"
 { return CORCHETECERRAR; }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 81 "expresiones.l"
+#line 87 "expresiones.l"
 { return PARENTESISABRIR; }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 82 "expresiones.l"
+#line 88 "expresiones.l"
 { return PARENTESISCERRAR; }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 85 "expresiones.l"
+#line 91 "expresiones.l"
 { return COMILLAS; }
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 86 "expresiones.l"
+#line 92 "expresiones.l"
 { return COMILLASIMPLE; }
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 89 "expresiones.l"
+#line 95 "expresiones.l"
 { yylval = atoi(yytext); return NUMEROS; }
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 90 "expresiones.l"
-{ return VARIABLES; }
+#line 96 "expresiones.l"
+{ addString(&arregloVariables, &tamVariables, yytext); return VARIABLES; }
 	YY_BREAK
 case 56:
 /* rule 56 can match eol */
 YY_RULE_SETUP
-#line 91 "expresiones.l"
-{ return CADENA; }
+#line 97 "expresiones.l"
+{ addString(&arregloCadenas, &tamCadenas, yytext); return CADENA; }
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 92 "expresiones.l"
-{ fprintf(errorFile, "%d \t Token desconocido '%s'\n", numError, yytext); numError++; }
+#line 98 "expresiones.l"
+{ addString(&arregloErrores, &tamErrores, yytext); }
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 95 "expresiones.l"
+#line 101 "expresiones.l"
 ECHO;
 	YY_BREAK
-#line 1106 "lex.yy.c"
+#line 1112 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2108,7 +2114,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 95 "expresiones.l"
+#line 101 "expresiones.l"
 
 
 int yywrap() {

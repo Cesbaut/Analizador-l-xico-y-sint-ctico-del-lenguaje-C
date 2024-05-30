@@ -190,12 +190,153 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-FILE *errorFile;
 extern FILE *yyin;
-void yyerror(const char *s);
+void yyerror(char *s);
 int yylex(void);
-int numError = 0;
+
+char **arregloErrores = NULL;
+int tamErrores = 0;
+char **arregloVariables = NULL;
+int tamVariables = 0;
+char **arregloCadenas = NULL;
+int tamCadenas = 0;
+
+void addString(char ***array, int *size, char *newString) {
+    
+    //printf("%s ---Cadena ingresada\n", newString);
+    
+    // Reallocate memory to hold one more pointer
+    char **tempArray = realloc(*array, (*size + 1) * sizeof(char*));
+    *array = tempArray;
+
+    // Allocate memory for the new string and copy it
+    (*array)[*size] = malloc(strlen(newString) + 1);
+
+    strcpy((*array)[*size], newString);
+
+    // Update the size of the array
+    (*size)++;
+}
+
+void imprimirInfo(){
+    printf("\n---FOR---\n");
+    printf("for(TIPO_DE_DATO VARIABLE IGUAL NUMERO; VARIABLE CONDICION NUMERO; VARIABLE INCREMENTO_DECREMENTO){\n");
+    printf("    CONTENIDO\n");
+    printf("}\n");
+    printf("------\n\n");
+
+    printf("---WHILE---\n");
+    printf("while(CONDICION){\n");
+    printf("    CONTENIDO\n");
+    printf("}\n");
+    printf("------\n\n");
+
+    printf("---DO-WHILE---\n");
+    printf("do {\n");
+    printf("    CONTENIDO\n");
+    printf("} while(CONDICION);\n");
+    printf("------\n\n");
+
+    printf("---IF---\n");
+    printf("if(CONDICION){\n");
+    printf("    CONTENIDO\n");
+    printf("}\n");
+    printf("------\n\n");
+
+    printf("---IF-ELSE---\n");
+    printf("if(CONDICION){\n");
+    printf("    CONTENIDO\n");
+    printf("} else {\n");
+    printf("    CONTENIDO\n");
+    printf("}\n");
+    printf("------\n\n");
+
+    printf("---SWITCH---\n");
+    printf("switch(EXPRESION){\n");
+    printf("    case VALOR1:\n");
+    printf("        CONTENIDO\n");
+    printf("        break;\n");
+    printf("    case VALOR2:\n");
+    printf("        CONTENIDO\n");
+    printf("        break;\n");
+    printf("    default:\n");
+    printf("        CONTENIDO\n");
+    printf("}\n");
+    printf("------\n\n");
+
+    printf("---OPERADORES---\n");
+    printf("+\n");
+    printf("-\n");
+    printf("*\n");
+    printf("/\n");
+    printf("%%\n");
+
+    printf("---OPERADORES DE ASIGNACION---\n");
+    printf("=\n");
+    printf("+=\n");
+    printf("-=\n");
+    printf("*=\n");
+    printf("/=\n");
+    printf("%%=\n");
+    printf("------\n\n");
+
+    printf("---INCREMENTO Y DECREMENTO---\n");
+    printf("--\n");
+    printf("++\n");
+    printf("------\n\n");
+
+
+    printf("---OPERADORES RELACIONALES---\n");
+    printf("==\n");
+    printf("!=\n");
+    printf(">\n");
+    printf("<\n");
+    printf(">=\n");
+    printf("<=\n");
+    printf("------\n\n");
+
+    printf("---OPERADORES LOGICOS---\n");
+    printf("&&\n");
+    printf("||\n");
+    printf("!\n");
+    printf("------\n\n");
+
+    printf("---TIPOS DE VARIABLES---\n");
+    printf("int\n");
+    printf("float\n");
+    printf("chart\n");
+    printf("double\n");
+    printf("void\n");
+    printf("short\n");
+    printf("long\n");
+    printf("signed\n");
+    printf("unsigned\n");
+    printf("------\n\n");
+
+    printf("---PUNTUACION---\n");
+    printf(";\n");
+    printf(",\n");
+    printf(".\n");
+    printf(":\n");
+    printf("------\n\n");
+
+    printf("---DELIMITADORES---\n");
+    printf("{\n");
+    printf("}\n");
+    printf("[\n");
+    printf("]\n");
+    printf("(\n");
+    printf(")\n");
+    printf("------\n\n");
+
+    printf("---DELIMITADORES DE CARACTERES---\n");
+    printf("\"\n");
+    printf("'\n");
+    printf("------\n\n");
+}
+
 
 
 /* Enabling traces.  */
@@ -229,7 +370,7 @@ typedef int YYSTYPE;
 
 
 /* Line 216 of yacc.c.  */
-#line 233 "y.tab.c"
+#line 374 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -539,15 +680,15 @@ static const yytype_int8 yyrhs[] =
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
-static const yytype_uint8 yyrline[] =
+static const yytype_uint16 yyrline[] =
 {
-       0,    31,    31,    33,    37,    38,    39,    40,    41,    42,
-      43,    44,    48,    54,    60,    68,    74,    81,    82,    86,
-      89,    91,    95,    98,    99,   100,   101,   102,   103,   104,
-     105,   106,   109,   110,   111,   112,   115,   116,   120,   121,
-     122,   123,   124,   125,   137,   138,   140,   142,   145,   148,
-     149,   152,   155,   156,   157,   158,   161,   162,   163,   164,
-     165
+       0,   172,   172,   174,   178,   179,   180,   181,   182,   183,
+     184,   185,   189,   195,   201,   209,   215,   222,   223,   227,
+     230,   232,   236,   239,   240,   241,   242,   243,   244,   245,
+     246,   247,   250,   251,   252,   253,   256,   257,   261,   262,
+     263,   264,   265,   266,   278,   279,   281,   283,   286,   289,
+     290,   293,   296,   297,   298,   299,   302,   303,   304,   305,
+     306
 };
 #endif
 
@@ -1576,35 +1717,35 @@ yyreduce:
   switch (yyn)
     {
         case 12:
-#line 49 "gramatica.y"
+#line 190 "gramatica.y"
     {
         printf("Sentencia if encontrada y correcta");
     ;}
     break;
 
   case 13:
-#line 55 "gramatica.y"
+#line 196 "gramatica.y"
     {
         printf("Sentencia for encontrada y correcta");
     ;}
     break;
 
   case 14:
-#line 61 "gramatica.y"
+#line 202 "gramatica.y"
     {
         printf("Sentencia while encontrada y correcta");
     ;}
     break;
 
   case 15:
-#line 69 "gramatica.y"
+#line 210 "gramatica.y"
     {
         printf("Sentencia do while encontrada y correcta");
     ;}
     break;
 
   case 16:
-#line 75 "gramatica.y"
+#line 216 "gramatica.y"
     {
         printf("Sentencia switch encontrada y correcta");
     ;}
@@ -1612,7 +1753,7 @@ yyreduce:
 
 
 /* Line 1267 of yacc.c.  */
-#line 1616 "y.tab.c"
+#line 1757 "y.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1826,151 +1967,22 @@ yyreturn:
 }
 
 
-#line 167 "gramatica.y"
+#line 308 "gramatica.y"
 
 
 
-void yyerror(const char *s) {
-    if(errorFile == NULL){
-        errorFile = fopen("errores.txt", "w");
-        if(errorFile == NULL){
-            perror("Could not open errores.txt");
-            exit(EXIT_FAILURE);
-        }
-    }
-    fprintf(errorFile, "%d \t %s\n", numError, s);
-    numError++;
+void yyerror(char *s) {
+    addString(&arregloErrores, &tamErrores, s);
 }
 
-void imprimirInfo(){
-    printf("\n---FOR---\n");
-    printf("for(TIPO_DE_DATO VARIABLE IGUAL NUMERO; VARIABLE CONDICION NUMERO; VARIABLE INCREMENTO_DECREMENTO){\n");
-    printf("    CONTENIDO\n");
-    printf("}\n");
-    printf("------\n\n");
-
-    printf("---WHILE---\n");
-    printf("while(CONDICION){\n");
-    printf("    CONTENIDO\n");
-    printf("}\n");
-    printf("------\n\n");
-
-    printf("---DO-WHILE---\n");
-    printf("do {\n");
-    printf("    CONTENIDO\n");
-    printf("} while(CONDICION);\n");
-    printf("------\n\n");
-
-    printf("---IF---\n");
-    printf("if(CONDICION){\n");
-    printf("    CONTENIDO\n");
-    printf("}\n");
-    printf("------\n\n");
-
-    printf("---IF-ELSE---\n");
-    printf("if(CONDICION){\n");
-    printf("    CONTENIDO\n");
-    printf("} else {\n");
-    printf("    CONTENIDO\n");
-    printf("}\n");
-    printf("------\n\n");
-
-    printf("---SWITCH---\n");
-    printf("switch(EXPRESION){\n");
-    printf("    case VALOR1:\n");
-    printf("        CONTENIDO\n");
-    printf("        break;\n");
-    printf("    case VALOR2:\n");
-    printf("        CONTENIDO\n");
-    printf("        break;\n");
-    printf("    default:\n");
-    printf("        CONTENIDO\n");
-    printf("}\n");
-    printf("------\n\n");
-
-    printf("---OPERADORES---\n");
-    printf("+\n");
-    printf("-\n");
-    printf("*\n");
-    printf("/\n");
-    printf("%%\n");
-
-    printf("---OPERADORES DE ASIGNACION---\n");
-    printf("=\n");
-    printf("+=\n");
-    printf("-=\n");
-    printf("*=\n");
-    printf("/=\n");
-    printf("%%=\n");
-    printf("------\n\n");
-
-    printf("---INCREMENTO Y DECREMENTO---\n");
-    printf("--\n");
-    printf("++\n");
-    printf("------\n\n");
-
-
-    printf("---OPERADORES RELACIONALES---\n");
-    printf("==\n");
-    printf("!=\n");
-    printf(">\n");
-    printf("<\n");
-    printf(">=\n");
-    printf("<=\n");
-    printf("------\n\n");
-
-    printf("---OPERADORES LOGICOS---\n");
-    printf("&&\n");
-    printf("||\n");
-    printf("!\n");
-    printf("------\n\n");
-
-    printf("---TIPOS DE VARIABLES---\n");
-    printf("int\n");
-    printf("float\n");
-    printf("chart\n");
-    printf("double\n");
-    printf("void\n");
-    printf("short\n");
-    printf("long\n");
-    printf("signed\n");
-    printf("unsigned\n");
-    printf("------\n\n");
-
-    printf("---PUNTUACION---\n");
-    printf(";\n");
-    printf(",\n");
-    printf(".\n");
-    printf(":\n");
-    printf("------\n\n");
-
-    printf("---DELIMITADORES---\n");
-    printf("{\n");
-    printf("}\n");
-    printf("[\n");
-    printf("]\n");
-    printf("(\n");
-    printf(")\n");
-    printf("------\n\n");
-
-    printf("---DELIMITADORES DE CARACTERES---\n");
-    printf("\"\n");
-    printf("'\n");
-    printf("------\n\n");
-}
 
 int main(int argc, char **argv) {
 
     FILE *inputFile = NULL;
+    FILE *errorFile;
+    errorFile = fopen("errores.txt", "w");
 
     imprimirInfo();
-
-    errorFile = fopen("errores.txt", "w");
-    if(errorFile==NULL){
-        perror("Could not open errores.txt");
-        return 1;
-    }
-    fprintf(errorFile, "Tabla Errores\n");
 
     if(argc>1){
         inputFile = fopen(argv[1], "r");
@@ -1982,6 +1994,21 @@ int main(int argc, char **argv) {
     }
     
     yyparse();
+
+    fprintf(errorFile, "Tabla Variables\n");
+    for(int i=0; i<tamVariables; i++){
+        fprintf(errorFile, "\t%d\t%s\n", i, arregloVariables[i]);
+    }
+
+    fprintf(errorFile, "\n\n\nTabla Cadenas\n");
+    for(int i=0; i<tamCadenas; i++){
+        fprintf(errorFile, "\t%d\t%s\n", i, arregloCadenas[i]);
+    }
+
+    fprintf(errorFile, "\n\n\nTabla Errores\n");
+    for(int i=0; i<tamErrores; i++){
+        fprintf(errorFile, "\t%d\t%s\n", i, arregloErrores[i]);
+    }
 
     if(inputFile){
         fclose(inputFile);
