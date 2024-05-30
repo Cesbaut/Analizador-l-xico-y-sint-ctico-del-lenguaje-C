@@ -196,6 +196,7 @@ extern FILE *yyin;
 void yyerror(char *s);
 int yylex(void);
 
+FILE *tokenFile = NULL;
 char **arregloErrores = NULL;
 int tamErrores = 0;
 char **arregloVariables = NULL;
@@ -370,7 +371,7 @@ typedef int YYSTYPE;
 
 
 /* Line 216 of yacc.c.  */
-#line 374 "y.tab.c"
+#line 375 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -682,13 +683,13 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,   172,   172,   174,   178,   179,   180,   181,   182,   183,
-     184,   185,   189,   195,   201,   209,   215,   222,   223,   227,
-     230,   232,   236,   239,   240,   241,   242,   243,   244,   245,
-     246,   247,   250,   251,   252,   253,   256,   257,   261,   262,
-     263,   264,   265,   266,   278,   279,   281,   283,   286,   289,
-     290,   293,   296,   297,   298,   299,   302,   303,   304,   305,
-     306
+       0,   173,   173,   175,   179,   180,   181,   182,   183,   184,
+     185,   186,   190,   196,   202,   210,   216,   223,   224,   228,
+     231,   233,   237,   240,   241,   242,   243,   244,   245,   246,
+     247,   248,   251,   252,   253,   254,   257,   258,   262,   263,
+     264,   265,   266,   267,   279,   280,   282,   284,   287,   290,
+     291,   294,   297,   298,   299,   300,   303,   304,   305,   306,
+     307
 };
 #endif
 
@@ -1717,35 +1718,35 @@ yyreduce:
   switch (yyn)
     {
         case 12:
-#line 190 "gramatica.y"
+#line 191 "gramatica.y"
     {
         printf("Sentencia if encontrada y correcta");
     ;}
     break;
 
   case 13:
-#line 196 "gramatica.y"
+#line 197 "gramatica.y"
     {
         printf("Sentencia for encontrada y correcta");
     ;}
     break;
 
   case 14:
-#line 202 "gramatica.y"
+#line 203 "gramatica.y"
     {
         printf("Sentencia while encontrada y correcta");
     ;}
     break;
 
   case 15:
-#line 210 "gramatica.y"
+#line 211 "gramatica.y"
     {
         printf("Sentencia do while encontrada y correcta");
     ;}
     break;
 
   case 16:
-#line 216 "gramatica.y"
+#line 217 "gramatica.y"
     {
         printf("Sentencia switch encontrada y correcta");
     ;}
@@ -1753,7 +1754,7 @@ yyreduce:
 
 
 /* Line 1267 of yacc.c.  */
-#line 1757 "y.tab.c"
+#line 1758 "y.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1967,7 +1968,7 @@ yyreturn:
 }
 
 
-#line 308 "gramatica.y"
+#line 309 "gramatica.y"
 
 
 
@@ -1981,6 +1982,8 @@ int main(int argc, char **argv) {
     FILE *inputFile = NULL;
     FILE *errorFile;
     errorFile = fopen("errores.txt", "w");
+    tokenFile = fopen("tokens.txt", "w");
+    fprintf(tokenFile, "Token\tIdentificador\tClase\n");
 
     imprimirInfo();
 
@@ -2015,6 +2018,7 @@ int main(int argc, char **argv) {
     }
 
     fclose(errorFile);
+    fclose(tokenFile);
 
     return 0;
 }

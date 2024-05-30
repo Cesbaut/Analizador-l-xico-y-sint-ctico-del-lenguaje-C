@@ -1,0 +1,18 @@
+Token	Identificador	Clase
+if		(1, 0)			 Palabras Reservadas
+(		(4, 8)			 Delimitadores
+5		(5, 12)			 Numeros
+<		(3, 4)			 Operadores relacionales
+6		(6, 12)			 Numeros
+)		(5, 8)			 Delimitadores
+{		(0, 8)			 Delimitadores
+x		(0, 10)			 Variables
+=		(0, 2)			 Operadores de asignacion
+i		(0, 10)			 Variables
++		(0, 1)			 Operadores
+1		(1, 12)			 Numeros
+;		(0, 7)			 Puntuacion
+}		(1, 8)			 Delimitadores
+for		(0, 0)			 Palabras Reservadas
+(		(4, 8)			 Delimitadores
+i		(0, 10)			 Variables

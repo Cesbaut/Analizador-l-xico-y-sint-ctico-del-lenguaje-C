@@ -531,6 +531,7 @@ char *yytext;
 #include <stdlib.h>
 #include <string.h>
 
+extern FILE *tokenFile;
 extern void addString(char ***array, int *size, const char *newString);
 extern char **arregloErrores;
 extern int tamErrores;
@@ -539,8 +540,14 @@ extern int tamVariables;
 extern char **arregloCadenas;
 extern int tamCadenas;
 
-#line 542 "lex.yy.c"
-#line 543 "lex.yy.c"
+void logToken(char *token, int id_clase, int id_tabla_clase, char *clase){
+    if(tokenFile){
+        fprintf(tokenFile, "%s\t\t(%d, %d)\t\t\t %s\n", token, id_clase, id_tabla_clase, clase);
+    }
+}
+
+#line 549 "lex.yy.c"
+#line 550 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -757,11 +764,11 @@ YY_DECL
 		}
 
 	{
-#line 17 "expresiones.l"
+#line 24 "expresiones.l"
 
 
 
-#line 764 "lex.yy.c"
+#line 771 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -820,296 +827,296 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 20 "expresiones.l"
-{ return FOR; }
+#line 27 "expresiones.l"
+{ logToken(yytext, 0, 0, "Palabras Reservadas"); return FOR; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 21 "expresiones.l"
-{ return IF; }
+#line 28 "expresiones.l"
+{ logToken(yytext, 1, 0, "Palabras Reservadas"); return IF; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 22 "expresiones.l"
-{ return ELSE; }
+#line 29 "expresiones.l"
+{ logToken(yytext, 2, 0, "Palabras Reservadas"); return ELSE; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 23 "expresiones.l"
-{ return WHILE; }
+#line 30 "expresiones.l"
+{ logToken(yytext, 3, 0, "Palabras Reservadas"); return WHILE; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 24 "expresiones.l"
-{ return DO; }
+#line 31 "expresiones.l"
+{ logToken(yytext, 4, 0, "Palabras Reservadas"); return DO; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 25 "expresiones.l"
-{ return SWITCH; }
+#line 32 "expresiones.l"
+{ logToken(yytext, 5, 0, "Palabras Reservadas"); return SWITCH; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 26 "expresiones.l"
-{ return PRINTF; }
+#line 33 "expresiones.l"
+{ logToken(yytext, 6, 0, "Palabras Reservadas"); return PRINTF; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 28 "expresiones.l"
-{ return CASE; }
+#line 34 "expresiones.l"
+{ logToken(yytext, 7, 0, "Palabras Reservadas"); return CASE; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 29 "expresiones.l"
-{ return BREAK; }
+#line 35 "expresiones.l"
+{ logToken(yytext, 8, 0, "Palabras Reservadas"); return BREAK; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 30 "expresiones.l"
-{ return DEFAULT; }
+#line 36 "expresiones.l"
+{ logToken(yytext, 9, 0, "Palabras Reservadas"); return DEFAULT; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 34 "expresiones.l"
-{ return MAS; }
+#line 40 "expresiones.l"
+{ logToken(yytext, 0, 1, "Operadores"); return MAS; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 35 "expresiones.l"
-{ return MENOS; }
+#line 41 "expresiones.l"
+{ logToken(yytext, 1, 1, "Operadores"); return MENOS; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 36 "expresiones.l"
-{ return MULTIPLICACION; }
+#line 42 "expresiones.l"
+{ logToken(yytext, 2, 1, "Operadores"); return MULTIPLICACION; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 37 "expresiones.l"
-{ return DIVISION; }
+#line 43 "expresiones.l"
+{ logToken(yytext, 3, 1, "Operadores"); return DIVISION; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 38 "expresiones.l"
-{ return MODULO; }
+#line 44 "expresiones.l"
+{ logToken(yytext, 4, 1, "Operadores"); return MODULO; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 41 "expresiones.l"
-{ return IGUAL; }
+#line 47 "expresiones.l"
+{ logToken(yytext, 0, 2, "Operadores de asignacion"); return IGUAL; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 42 "expresiones.l"
-{ return MASIGUAL; }
+#line 48 "expresiones.l"
+{ logToken(yytext, 1, 2, "Operadores de asignacion"); return MASIGUAL; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 43 "expresiones.l"
-{ return MENOSIGUAL; }
+#line 49 "expresiones.l"
+{ logToken(yytext, 2, 2, "Operadores de asignacion"); return MENOSIGUAL; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 44 "expresiones.l"
-{ return MULTIPLICACIONIGUAL; }
+#line 50 "expresiones.l"
+{ logToken(yytext, 3, 2, "Operadores de asignacion"); return MULTIPLICACIONIGUAL; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 45 "expresiones.l"
-{ return DIVISIONIGUAL; }
+#line 51 "expresiones.l"
+{ logToken(yytext, 4, 2, "Operadores de asignacion"); return DIVISIONIGUAL; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 46 "expresiones.l"
-{ return MODULOIGUAL; }
+#line 52 "expresiones.l"
+{ logToken(yytext, 5, 2, "Operadores de asignacion"); return MODULOIGUAL; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 49 "expresiones.l"
-{ return DECREMENTO; }
+#line 55 "expresiones.l"
+{ logToken(yytext, 0, 3, "Incremento y decremento"); return DECREMENTO; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 50 "expresiones.l"
-{ return INCREMENTO; }
+#line 56 "expresiones.l"
+{ logToken(yytext, 1, 3, "Incremento y decremento"); return INCREMENTO; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 53 "expresiones.l"
-{ return IGUALIGUAL; }
+#line 59 "expresiones.l"
+{ logToken(yytext, 0, 4, "Operadores relacionales"); return IGUALIGUAL; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 54 "expresiones.l"
-{ return DIFERENTE; }
+#line 60 "expresiones.l"
+{ logToken(yytext, 1, 4, "Operadores relacionales"); return DIFERENTE; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 55 "expresiones.l"
-{ return MAYOR; }
+#line 61 "expresiones.l"
+{ logToken(yytext, 2, 4, "Operadores relacionales"); return MAYOR; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 56 "expresiones.l"
-{ return MENOR; }
+#line 62 "expresiones.l"
+{ logToken(yytext, 3, 4, "Operadores relacionales"); return MENOR; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 57 "expresiones.l"
-{ return MAYORIGUAL; }
+#line 63 "expresiones.l"
+{ logToken(yytext, 5, 4, "Operadores relacionales"); return MAYORIGUAL; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 58 "expresiones.l"
-{ return MENORIGUAL; }
+#line 64 "expresiones.l"
+{ logToken(yytext, 6, 4, "Operadores relacionales"); return MENORIGUAL; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 61 "expresiones.l"
-{ return AND; }
+#line 67 "expresiones.l"
+{ logToken(yytext, 0, 5, "Operadores logicos"); return AND; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 62 "expresiones.l"
-{ return OR; }
+#line 68 "expresiones.l"
+{ logToken(yytext, 1, 5, "Operadores logicos"); return OR; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 63 "expresiones.l"
-{ return NOT; }
+#line 69 "expresiones.l"
+{ logToken(yytext, 2, 5, "Operadores logicos"); return NOT; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 66 "expresiones.l"
-{ return INT; }
+#line 72 "expresiones.l"
+{ logToken(yytext, 0, 6, "Tipos de variables"); return INT; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 67 "expresiones.l"
-{ return FLOAT; }
+#line 73 "expresiones.l"
+{ logToken(yytext, 1, 6, "Tipos de variables"); return FLOAT; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 68 "expresiones.l"
-{ return CHAR; }
+#line 74 "expresiones.l"
+{ logToken(yytext, 2, 6, "Tipos de variables"); return CHAR; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 69 "expresiones.l"
-{ return DOUBLE; }
+#line 75 "expresiones.l"
+{ logToken(yytext, 3, 6, "Tipos de variables"); return DOUBLE; }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 70 "expresiones.l"
-{ return VOID; }
+#line 76 "expresiones.l"
+{ logToken(yytext, 4, 6, "Tipos de variables"); return VOID; }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 71 "expresiones.l"
-{ return SHORT; }
+#line 77 "expresiones.l"
+{ logToken(yytext, 5, 6, "Tipos de variables"); return SHORT; }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 72 "expresiones.l"
-{ return LONG; }
+#line 78 "expresiones.l"
+{ logToken(yytext, 6, 6, "Tipos de variables"); return LONG; }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 73 "expresiones.l"
-{ return SIGNED; }
+#line 79 "expresiones.l"
+{ logToken(yytext, 7, 6, "Tipos de variables"); return SIGNED; }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 74 "expresiones.l"
-{ return UNSIGNED; }
+#line 80 "expresiones.l"
+{ logToken(yytext, 8, 6, "Tipos de variables"); return UNSIGNED; }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 77 "expresiones.l"
-{ return PUNTOCOMA; }
+#line 83 "expresiones.l"
+{ logToken(yytext, 0, 7, "Puntuacion"); return PUNTOCOMA; }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 78 "expresiones.l"
-{ return COMA; }
+#line 84 "expresiones.l"
+{ logToken(yytext, 1, 7, "Puntuacion"); return COMA; }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 79 "expresiones.l"
-{ return PUNTO; }
+#line 85 "expresiones.l"
+{ logToken(yytext, 2, 7, "Puntuacion"); return PUNTO; }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 80 "expresiones.l"
-{ return DOSPUNTOS; }
+#line 86 "expresiones.l"
+{ logToken(yytext, 3, 7, "Puntuacion"); return DOSPUNTOS; }
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 83 "expresiones.l"
-{ return LLAVEABRIR; }
+#line 89 "expresiones.l"
+{ logToken(yytext, 0, 8, "Delimitadores"); return LLAVEABRIR; }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 84 "expresiones.l"
-{ return LLAVECERRAR; }
+#line 90 "expresiones.l"
+{ logToken(yytext, 1, 8, "Delimitadores"); return LLAVECERRAR; }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 85 "expresiones.l"
-{ return CORCHETEABRIR; }
+#line 91 "expresiones.l"
+{ logToken(yytext, 2, 8, "Delimitadores"); return CORCHETEABRIR; }
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 86 "expresiones.l"
-{ return CORCHETECERRAR; }
+#line 92 "expresiones.l"
+{ logToken(yytext, 3, 8, "Delimitadores"); return CORCHETECERRAR; }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 87 "expresiones.l"
-{ return PARENTESISABRIR; }
+#line 93 "expresiones.l"
+{ logToken(yytext, 4, 8, "Delimitadores"); return PARENTESISABRIR; }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 88 "expresiones.l"
-{ return PARENTESISCERRAR; }
+#line 94 "expresiones.l"
+{ logToken(yytext, 5, 8, "Delimitadores"); return PARENTESISCERRAR; }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 91 "expresiones.l"
-{ return COMILLAS; }
+#line 97 "expresiones.l"
+{ logToken(yytext, 0, 9, "Delimitadores de caracteres"); return COMILLAS; }
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 92 "expresiones.l"
-{ return COMILLASIMPLE; }
+#line 98 "expresiones.l"
+{ logToken(yytext, 1, 9, "Delimitadores de caracteres"); return COMILLASIMPLE; }
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 95 "expresiones.l"
-{ yylval = atoi(yytext); return NUMEROS; }
+#line 101 "expresiones.l"
+{ logToken(yytext, atoi(yytext), 12, "Numeros"); yylval = atoi(yytext); return NUMEROS; }
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 96 "expresiones.l"
-{ addString(&arregloVariables, &tamVariables, yytext); return VARIABLES; }
+#line 102 "expresiones.l"
+{ logToken(yytext, 0, 10, "Variables"); addString(&arregloVariables, &tamVariables, yytext); return VARIABLES; }
 	YY_BREAK
 case 56:
 /* rule 56 can match eol */
 YY_RULE_SETUP
-#line 97 "expresiones.l"
-{ addString(&arregloCadenas, &tamCadenas, yytext); return CADENA; }
+#line 103 "expresiones.l"
+{ logToken(yytext, 0, 11, "Cadenas"); addString(&arregloCadenas, &tamCadenas, yytext); return CADENA; }
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 98 "expresiones.l"
+#line 104 "expresiones.l"
 { addString(&arregloErrores, &tamErrores, yytext); }
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 101 "expresiones.l"
+#line 107 "expresiones.l"
 ECHO;
 	YY_BREAK
-#line 1112 "lex.yy.c"
+#line 1119 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2114,7 +2121,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 101 "expresiones.l"
+#line 107 "expresiones.l"
 
 
 int yywrap() {

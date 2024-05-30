@@ -7,6 +7,7 @@ extern FILE *yyin;
 void yyerror(char *s);
 int yylex(void);
 
+FILE *tokenFile = NULL;
 char **arregloErrores = NULL;
 int tamErrores = 0;
 char **arregloVariables = NULL;
@@ -318,6 +319,8 @@ int main(int argc, char **argv) {
     FILE *inputFile = NULL;
     FILE *errorFile;
     errorFile = fopen("errores.txt", "w");
+    tokenFile = fopen("tokens.txt", "w");
+    fprintf(tokenFile, "Token\tIdentificador\tClase\n");
 
     imprimirInfo();
 
@@ -352,6 +355,7 @@ int main(int argc, char **argv) {
     }
 
     fclose(errorFile);
+    fclose(tokenFile);
 
     return 0;
 }
