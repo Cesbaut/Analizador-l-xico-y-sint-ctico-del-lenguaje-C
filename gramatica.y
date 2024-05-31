@@ -15,8 +15,27 @@ int tamVariables = 0;
 char **arregloCadenas = NULL;
 int tamCadenas = 0;
 
-void addString(char ***array, int *size, char *newString) {
+int searchStringArray(char **array, int *size, char *value) {
+    for (int i = 0; i < *size; i++) {
+        //printf("(%d)%s=%s-%d\n",i, array[i], value, *size);
+        //printf("%d\n", strcmp(array[i], value));
+        if (strcmp(array[i], value) == 0) {
+            return i; // Return the index of the found string
+        }
+    }
+    return -1; // Return -1 if the string is not found
+}
+
+int addString(char ***array, int *size, char *newString) {
     
+    int encontrado = searchStringArray(*array, size, newString);
+
+    //printf("%d\n", encontrado);
+
+    if(encontrado!=-1){
+        return encontrado;
+    }
+
     // Reallocate memory to hold one more pointer
     char **tempArray = realloc(*array, (*size + 1) * sizeof(char*));
     *array = tempArray;
@@ -28,6 +47,8 @@ void addString(char ***array, int *size, char *newString) {
 
     // Update the size of the array
     (*size)++;
+
+    return (*size)-1;
 }
 
 void imprimirInfo(){
@@ -187,19 +208,19 @@ sentencia:
 if_statement:
     IF PARENTESISABRIR condicion PARENTESISCERRAR LLAVEABRIR contenido LLAVECERRAR 
     {
-        printf("Sentencia if encontrada y correcta");
+        printf("Sentencia if encontrada y correcta\n");
     }
     ;
 for_statement:
     FOR PARENTESISABRIR inicializacion PUNTOCOMA condicion PUNTOCOMA incremento PARENTESISCERRAR LLAVEABRIR contenido LLAVECERRAR
     {
-        printf("Sentencia for encontrada y correcta");
+        printf("Sentencia for encontrada y correcta\n");
     }
     ;
 while_statement:
     WHILE PARENTESISABRIR condicion PARENTESISCERRAR LLAVEABRIR contenido LLAVECERRAR
     {
-        printf("Sentencia while encontrada y correcta");
+        printf("Sentencia while encontrada y correcta\n");
     }
     ;
 
@@ -207,13 +228,13 @@ while_statement:
 do_while_statement:
     DO LLAVEABRIR contenido LLAVECERRAR WHILE PARENTESISABRIR condicion PARENTESISCERRAR PUNTOCOMA
     {
-        printf("Sentencia do while encontrada y correcta");
+        printf("Sentencia do while encontrada y correcta\n");
     }
     ;
 switch_statement:
     SWITCH PARENTESISABRIR VARIABLES PARENTESISCERRAR LLAVEABRIR case_clauses default_clause_opt LLAVECERRAR
     {
-        printf("Sentencia switch encontrada y correcta");
+        printf("Sentencia switch encontrada y correcta\n");
     }
     ;
 
@@ -232,7 +253,8 @@ default_clause_opt:
     ;
 
 inicializacion:
-    tipoDeDato VARIABLES IGUAL opcion
+    tipoDeDato VARIABLES operadorAsignacion opcion
+    |VARIABLES operadorAsignacion opcion
     ;
 tipoDeDato:
     INT
@@ -285,17 +307,20 @@ impresion:
     PRINTF PARENTESISABRIR CADENA PARENTESISCERRAR PUNTOCOMA
     ;
 asigancionVariable:
-    tipoDeDato VARIABLES IGUAL opcion PUNTOCOMA
-    |tipoDeDato VARIABLES IGUAL CADENA PUNTOCOMA
+    tipoDeDato VARIABLES operadorAsignacion opcion PUNTOCOMA
+    |VARIABLES operadorAsignacion CADENA PUNTOCOMA
+    |incremento PUNTOCOMA
     ;
 operacion:
-    VARIABLES IGUAL opcion operador opcion PUNTOCOMA
+    VARIABLES operadorAsignacion opcion operador opcion PUNTOCOMA
+    |incremento PUNTOCOMA
     ;
 opcion:
     NUMEROS
     | VARIABLES
     | opcion operador opcion
     | PARENTESISABRIR opcion PARENTESISCERRAR
+    | CADENA
     ;
 operador:
     MAS

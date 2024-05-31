@@ -5,7 +5,7 @@
 #include <string.h>
 
 extern FILE *tokenFile;
-extern void addString(char ***array, int *size, const char *newString);
+extern int addString(char ***array, int *size, const char *newString);
 extern char **arregloErrores;
 extern int tamErrores;
 extern char **arregloVariables;
@@ -98,8 +98,9 @@ void logToken(char *token, int id_clase, int id_tabla_clase, char *clase){
 
 
 [0-9]+                      { logToken(yytext, atoi(yytext), 12, "Numeros"); yylval = atoi(yytext); return NUMEROS; }
-[a-zA-Z_][a-zA-Z0-9_]*      { addString(&arregloVariables, &tamVariables, yytext); logToken(yytext, tamVariables, 10, "Variables"); return VARIABLES; }
-\"(\\.|[^\"\\])*\"          { addString(&arregloCadenas, &tamCadenas, yytext); logToken(yytext, tamCadenas, 11, "Cadenas"); return CADENA; }
+[a-zA-Z_][a-zA-Z0-9_]*      { logToken(yytext, addString(&arregloVariables, &tamVariables, yytext), 10, "Variables"); return VARIABLES; }
+\"(\\.|[^\"\\])*\"          { logToken(yytext, addString(&arregloCadenas, &tamCadenas, yytext), 11, "Cadenas"); return CADENA; }
+[ \t\n]                     {  }
 .                           { addString(&arregloErrores, &tamErrores, yytext); }
 
 

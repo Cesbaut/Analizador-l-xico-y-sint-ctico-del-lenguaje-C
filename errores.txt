@@ -1,15 +1,17 @@
 Tabla Variables
-	0	x
+	0	i
 	1	x
-	2	i
+	2	I
 	3	y
+	4	j
 
 
 
 Tabla Cadenas
-	0	"Hola mundo"
+	0	"Hola Mundo"
+	1	"Papas con queso"
+	2	"Se logro"
 
 
 
 Tabla Errores
-	0	syntax error

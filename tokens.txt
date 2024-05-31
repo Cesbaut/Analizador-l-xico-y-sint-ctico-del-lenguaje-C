@@ -1,4 +1,25 @@
 Token	Identificador	Clase
+for		(0, 0)			 Palabras Reservadas
+(		(4, 8)			 Delimitadores
+int		(0, 6)			 Tipos de variables
+i		(0, 10)			 Variables
+=		(0, 2)			 Operadores de asignacion
+1		(1, 12)			 Numeros
+;		(0, 7)			 Puntuacion
+i		(0, 10)			 Variables
+<		(3, 4)			 Operadores relacionales
+9		(9, 12)			 Numeros
+;		(0, 7)			 Puntuacion
+i		(0, 10)			 Variables
+++		(1, 3)			 Incremento y decremento
+)		(5, 8)			 Delimitadores
+{		(0, 8)			 Delimitadores
+printf		(6, 0)			 Palabras Reservadas
+(		(4, 8)			 Delimitadores
+"Hola Mundo"		(0, 11)			 Cadenas
+)		(5, 8)			 Delimitadores
+;		(0, 7)			 Puntuacion
+}		(1, 8)			 Delimitadores
 if		(1, 0)			 Palabras Reservadas
 (		(4, 8)			 Delimitadores
 x		(1, 10)			 Variables
@@ -6,12 +27,42 @@ x		(1, 10)			 Variables
 6		(6, 12)			 Numeros
 )		(5, 8)			 Delimitadores
 {		(0, 8)			 Delimitadores
-x		(2, 10)			 Variables
+x		(1, 10)			 Variables
 =		(0, 2)			 Operadores de asignacion
-i		(3, 10)			 Variables
+i		(0, 10)			 Variables
 +		(0, 1)			 Operadores
 1		(1, 12)			 Numeros
 ;		(0, 7)			 Puntuacion
-y		(4, 10)			 Variables
+x		(1, 10)			 Variables
+++		(1, 3)			 Incremento y decremento
+;		(0, 7)			 Puntuacion
+}		(1, 8)			 Delimitadores
+for		(0, 0)			 Palabras Reservadas
+(		(4, 8)			 Delimitadores
+i		(0, 10)			 Variables
 =		(0, 2)			 Operadores de asignacion
-"Hola mundo"		(1, 11)			 Cadenas
+0		(0, 12)			 Numeros
+;		(0, 7)			 Puntuacion
+i		(0, 10)			 Variables
+<=		(6, 4)			 Operadores relacionales
+45		(45, 12)			 Numeros
+;		(0, 7)			 Puntuacion
+I		(2, 10)			 Variables
+--		(0, 3)			 Incremento y decremento
+)		(5, 8)			 Delimitadores
+{		(0, 8)			 Delimitadores
+y		(3, 10)			 Variables
+=		(0, 2)			 Operadores de asignacion
+"Papas con queso"		(1, 11)			 Cadenas
+;		(0, 7)			 Puntuacion
+int		(0, 6)			 Tipos de variables
+j		(4, 10)			 Variables
+=		(0, 2)			 Operadores de asignacion
+0		(0, 12)			 Numeros
+;		(0, 7)			 Puntuacion
+}		(1, 8)			 Delimitadores
+printf		(6, 0)			 Palabras Reservadas
+(		(4, 8)			 Delimitadores
+"Se logro"		(2, 11)			 Cadenas
+)		(5, 8)			 Delimitadores
+;		(0, 7)			 Puntuacion
