@@ -1,11 +1,13 @@
 Tabla Variables
 	0	x
-	1	i
+	1	x
 	2	i
+	3	y
 
 
 
 Tabla Cadenas
+	0	"Hola mundo"
 
 
 

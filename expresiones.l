@@ -36,7 +36,6 @@ void logToken(char *token, int id_clase, int id_tabla_clase, char *clase){
 "default"           { logToken(yytext, 9, 0, "Palabras Reservadas"); return DEFAULT; }
 
 
-
 "+"                 { logToken(yytext, 0, 1, "Operadores"); return MAS; }
 "-"                 { logToken(yytext, 1, 1, "Operadores"); return MENOS; }
 "*"                 { logToken(yytext, 2, 1, "Operadores"); return MULTIPLICACION; }
@@ -99,8 +98,8 @@ void logToken(char *token, int id_clase, int id_tabla_clase, char *clase){
 
 
 [0-9]+                      { logToken(yytext, atoi(yytext), 12, "Numeros"); yylval = atoi(yytext); return NUMEROS; }
-[a-zA-Z_][a-zA-Z0-9_]*      { logToken(yytext, 0, 10, "Variables"); addString(&arregloVariables, &tamVariables, yytext); return VARIABLES; }
-\"(\\.|[^\"\\])*\"          { logToken(yytext, 0, 11, "Cadenas"); addString(&arregloCadenas, &tamCadenas, yytext); return CADENA; }
+[a-zA-Z_][a-zA-Z0-9_]*      { addString(&arregloVariables, &tamVariables, yytext); logToken(yytext, tamVariables, 10, "Variables"); return VARIABLES; }
+\"(\\.|[^\"\\])*\"          { addString(&arregloCadenas, &tamCadenas, yytext); logToken(yytext, tamCadenas, 11, "Cadenas"); return CADENA; }
 .                           { addString(&arregloErrores, &tamErrores, yytext); }
 
 

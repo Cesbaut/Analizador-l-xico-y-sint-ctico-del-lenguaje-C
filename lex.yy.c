@@ -1098,13 +1098,13 @@ YY_RULE_SETUP
 case 55:
 YY_RULE_SETUP
 #line 102 "expresiones.l"
-{ logToken(yytext, 0, 10, "Variables"); addString(&arregloVariables, &tamVariables, yytext); return VARIABLES; }
+{ addString(&arregloVariables, &tamVariables, yytext); logToken(yytext, tamVariables, 10, "Variables"); return VARIABLES; }
 	YY_BREAK
 case 56:
 /* rule 56 can match eol */
 YY_RULE_SETUP
 #line 103 "expresiones.l"
-{ logToken(yytext, 0, 11, "Cadenas"); addString(&arregloCadenas, &tamCadenas, yytext); return CADENA; }
+{ addString(&arregloCadenas, &tamCadenas, yytext); logToken(yytext, tamCadenas, 11, "Cadenas"); return CADENA; }
 	YY_BREAK
 case 57:
 YY_RULE_SETUP

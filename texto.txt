@@ -1,8 +1,9 @@
-if(5<6){
+if(x<6){
 x=i+1;
+y="Hola mundo";
 }
 
-for(i=1; i<9; i++){
+for(i=1;i<9;i++){
 y=y+1;
 }
 

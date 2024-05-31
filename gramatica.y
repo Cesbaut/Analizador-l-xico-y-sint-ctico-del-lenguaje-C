@@ -17,8 +17,6 @@ int tamCadenas = 0;
 
 void addString(char ***array, int *size, char *newString) {
     
-    //printf("%s ---Cadena ingresada\n", newString);
-    
     // Reallocate memory to hold one more pointer
     char **tempArray = realloc(*array, (*size + 1) * sizeof(char*));
     *array = tempArray;
