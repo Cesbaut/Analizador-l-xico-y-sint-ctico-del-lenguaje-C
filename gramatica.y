@@ -17,35 +17,27 @@ int tamCadenas = 0;
 
 int searchStringArray(char **array, int *size, char *value) {
     for (int i = 0; i < *size; i++) {
-        //printf("(%d)%s=%s-%d\n",i, array[i], value, *size);
-        //printf("%d\n", strcmp(array[i], value));
         if (strcmp(array[i], value) == 0) {
-            return i; // Return the index of the found string
+            return i;
         }
     }
-    return -1; // Return -1 if the string is not found
+    return -1;
 }
 
 int addString(char ***array, int *size, char *newString) {
-    
     int encontrado = searchStringArray(*array, size, newString);
-
-    //printf("%d\n", encontrado);
 
     if(encontrado!=-1){
         return encontrado;
     }
 
-    // Reallocate memory to hold one more pointer
     char **tempArray = realloc(*array, (*size + 1) * sizeof(char*));
     *array = tempArray;
 
-    // Allocate memory for the new string and copy it
     (*array)[*size] = malloc(strlen(newString) + 1);
 
     strcpy((*array)[*size], newString);
 
-    // Update the size of the array
     (*size)++;
 
     return (*size)-1;
